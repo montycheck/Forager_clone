@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://dpcc1mh8kqbn6"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_ebg4u"]
+[ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="2_c0px2"]
+[ext_resource type="Resource" uid="uid://bmu3fe4vko0dh" path="res://resources/harvestables/harvestable_wood.tres" id="2_urude"]
+[ext_resource type="Resource" uid="uid://cx3u7odug33ov" path="res://resources/harvestables/harvestable_stone.tres" id="3_gn3w3"]
+
+[resource]
+script = ExtResource("2_c0px2")
+biome_name = "Plain"
+debug_color = Color(0, 0.90588236, 0.16078432, 1)
+noise_min = -0.2
+noise_max = 0.3
+allowed_harvestables = Array[ExtResource("1_ebg4u")]([ExtResource("2_urude"), ExtResource("3_gn3w3")])
+metadata/_custom_type_script = "uid://b6ijli6w5cnxu"

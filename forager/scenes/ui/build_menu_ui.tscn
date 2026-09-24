@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bqlwiafsgud2h"]
+
+[ext_resource type="Script" uid="uid://o66jigil4psu" path="res://scripts/ui/build_menu_ui.gd" id="1_2ga61"]
+[ext_resource type="Texture2D" uid="uid://dle6hvvpffn1h" path="res://assets/icons/close_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" id="2_8arht"]
+
+[node name="BuildMenuUI" type="Control" unique_id=1965598768]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ga61")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=583517013]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -46.0
+offset_right = 74.5
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Root" type="VBoxContainer" parent="Panel" unique_id=2006652836]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Panel/Root" unique_id=569436842]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/Root/TopBar" unique_id=1828680235]
+layout_mode = 2
+text = "Build"
+
+[node name="Spacer" type="Control" parent="Panel/Root/TopBar" unique_id=706776481]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="Panel/Root/TopBar" unique_id=2117849130]
+layout_mode = 2
+icon = ExtResource("2_8arht")
+
+[node name="BuildingsList" type="VBoxContainer" parent="Panel/Root" unique_id=431659587]
+layout_mode = 2

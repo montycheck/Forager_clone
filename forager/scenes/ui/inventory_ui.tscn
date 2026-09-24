@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://drvyssaiyf7iq"]
+
+[ext_resource type="Script" uid="uid://cciv63cmkiela" path="res://scripts/ui/inventory_ui.gd" id="1_7nagc"]
+
+[node name="InventoryUI" type="Control" unique_id=974680617]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7nagc")
+
+[node name="SlotsContainer" type="HBoxContainer" parent="." unique_id=604277265]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://cpnjgcgqmph2h"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_151v0"]
+[ext_resource type="Texture2D" uid="uid://buk3f3hdfbmwe" path="res://assets/sprites/farm_placeholder.png" id="1_cuy81"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="1_eh07w"]
+[ext_resource type="Resource" uid="uid://bm32wkomyreh5" path="res://resources/items/item_wood.tres" id="2_1bpvj"]
+[ext_resource type="PackedScene" uid="uid://8k44a8uxyixr" path="res://scenes/buildings/farm_building.tscn" id="2_yq0k1"]
+
+[resource]
+script = ExtResource("1_eh07w")
+id = "farm"
+display_name = "Farm"
+icon = ExtResource("1_cuy81")
+scene = ExtResource("2_yq0k1")
+cost_items = Array[ExtResource("1_151v0")]([ExtResource("2_1bpvj")])
+cost_amounts = Array[int]([3])
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://bxhlbg2xdgqq0"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_8efuu"]
+[ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="2_ahms8"]
+
+[resource]
+script = ExtResource("2_ahms8")
+biome_name = "water"
+debug_color = Color(0.17774379, 0.41025916, 1, 1)
+ground_atlas_coords = Vector2i(1, 0)
+metadata/_custom_type_script = "uid://b6ijli6w5cnxu"

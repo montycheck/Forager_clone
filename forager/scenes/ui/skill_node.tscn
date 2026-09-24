@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://r78ykoxjiyb7"]
+
+[ext_resource type="Script" uid="uid://cvqf16x0cbpsn" path="res://scripts/ui/skill_node.gd" id="1_p5awi"]
+
+[node name="SkillNode" type="PanelContainer" unique_id=368359498]
+custom_minimum_size = Vector2(90, 90)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_p5awi")
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=371236632]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="Content" unique_id=1679248929]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="Content" unique_id=170646453]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 2

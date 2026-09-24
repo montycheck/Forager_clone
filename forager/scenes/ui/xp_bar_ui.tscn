@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://brnbnxr24hky2"]
+
+[ext_resource type="Script" uid="uid://dp24cjak6xi74" path="res://scripts/ui/xp_bar_ui.gd" id="1_h1dqw"]
+
+[node name="XPBarUI" type="Control" unique_id=355905607]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1dqw")
+
+[node name="Bar" type="ProgressBar" parent="." unique_id=1747485914]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+max_value = 1.0
+show_percentage = false
+
+[node name="LevelLabel" type="Label" parent="." unique_id=1701004194]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0

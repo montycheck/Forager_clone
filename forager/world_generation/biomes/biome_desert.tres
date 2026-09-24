@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://6jmlo33vwkj7"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_ui4nw"]
+[ext_resource type="Resource" uid="uid://cx3u7odug33ov" path="res://resources/harvestables/harvestable_stone.tres" id="2_gfi7g"]
+[ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="2_wbpxb"]
+
+[resource]
+script = ExtResource("2_wbpxb")
+biome_name = "Desert"
+debug_color = Color(0.9764706, 0.77254903, 0, 1)
+noise_max = -0.2
+ground_atlas_coords = Vector2i(2, 0)
+allowed_harvestables = Array[ExtResource("1_ui4nw")]([ExtResource("2_gfi7g")])
+metadata/_custom_type_script = "uid://b6ijli6w5cnxu"

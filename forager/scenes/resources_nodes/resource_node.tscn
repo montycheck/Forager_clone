@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d1w41ci52lf74"]
+
+[ext_resource type="Script" uid="uid://dlqjbhlbck7bh" path="res://scripts/world/resource_node.gd" id="1_5rl7d"]
+[ext_resource type="Texture2D" uid="uid://bkqkksxohnqio" path="res://assets/sprites/tree_placeholder.png" id="1_kghni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rl7d"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7t5i"]
+size = Vector2(64, 60)
+
+[node name="ResourceNode" type="Node2D" unique_id=1045882577]
+script = ExtResource("1_5rl7d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1293797406]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=211754051]
+shape = SubResource("RectangleShape2D_5rl7d")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1883609030]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1238237577]
+shape = SubResource("RectangleShape2D_f7t5i")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1032468743]
+texture = ExtResource("1_kghni")

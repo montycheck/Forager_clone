@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cxdl23gvb8f15"]
+
+[ext_resource type="Script" uid="uid://dqufv4mxd2re8" path="res://scripts/ui/recipe_entry.gd" id="1_7uhiu"]
+[ext_resource type="FontFile" uid="uid://d0c3761ora5wl" path="res://assets/fonts/Fredoka-SemiBold.ttf" id="2_vfejc"]
+[ext_resource type="Script" uid="uid://cnx5d2o14du88" path="res://scripts/ui/pop_button.gd" id="3_8b7cs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfejc"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.13333334, 0.13333334, 0.16470589, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.2, 0.23529412, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+anti_aliasing = false
+
+[node name="RecipeEntry" type="PanelContainer" unique_id=1779430588]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vfejc")
+script = ExtResource("1_7uhiu")
+
+[node name="Content" type="HBoxContainer" parent="." unique_id=1002639027]
+layout_mode = 2
+
+[node name="OutputIcon" type="TextureRect" parent="Content" unique_id=953433059]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="InfoBox" type="VBoxContainer" parent="Content" unique_id=1791562918]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="Content/InfoBox" unique_id=1847722802]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vfejc")
+theme_override_font_sizes/font_size = 18
+
+[node name="IngredientsBox" type="HBoxContainer" parent="Content/InfoBox" unique_id=1055746992]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CraftButton" type="Button" parent="Content" unique_id=1681692986]
+layout_mode = 2
+text = "Craft"
+script = ExtResource("3_8b7cs")

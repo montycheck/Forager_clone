@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BiomeData" format=3 uid="uid://bgn6s6s4kyfpb"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_avio5"]
+[ext_resource type="Resource" uid="uid://bmu3fe4vko0dh" path="res://resources/harvestables/harvestable_wood.tres" id="2_bkte7"]
+[ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="2_r4gtd"]
+
+[resource]
+script = ExtResource("2_r4gtd")
+biome_name = "Forest"
+debug_color = Color(0.07450981, 0.34901962, 0, 1)
+noise_min = 0.3
+ground_atlas_coords = Vector2i(3, 0)
+allowed_harvestables = Array[ExtResource("1_avio5")]([ExtResource("2_bkte7")])
+metadata/_custom_type_script = "uid://b6ijli6w5cnxu"

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cm18wxx4aema8"]
+
+[ext_resource type="Texture2D" uid="uid://x3dkgwtm4fwe" path="res://assets/sprites/mine_placeholder.png" id="1_8ceff"]
+[ext_resource type="Script" uid="uid://c3rled46jxw2q" path="res://scripts/world/production_building.gd" id="1_l183c"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_42yr5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l183c"]
+size = Vector2(32, 32)
+
+[node name="MineBuilding" type="Node2D" unique_id=1596198074]
+script = ExtResource("1_l183c")
+produced_item = ExtResource("2_42yr5")
+production_time = 7.0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=913305284]
+texture = ExtResource("1_8ceff")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1790091747]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1824048095]
+shape = SubResource("RectangleShape2D_l183c")

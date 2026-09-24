@@ -1,0 +1,63 @@
+[gd_resource type="Theme" format=3 uid="uid://bs4q2qd0ex7vv"]
+
+[ext_resource type="FontFile" uid="uid://d0c3761ora5wl" path="res://assets/fonts/Fredoka-SemiBold.ttf" id="1_k528p"]
+[ext_resource type="FontFile" uid="uid://csdt1crq6y2ch" path="res://assets/fonts/Fredoka-Regular.ttf" id="2_cu4xe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_605w4"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.15639701, 0.15639701, 0.19161151, 0.60784316)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lwr2"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.101960786, 0.101960786, 0.11764706, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.37254903, 0.8156863, 0.40784314, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eckwq"]
+bg_color = Color(0.37254903, 0.8156863, 0.40784314, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0b23"]
+
+[resource]
+default_font = ExtResource("2_cu4xe")
+default_font_size = 16
+Button/colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
+Button/colors/font_disabled_color = Color(0.4392157, 0.4392157, 0.47058824, 1)
+Button/constants/h_separation = 8
+Button/constants/icon_max_width = 20
+Button/fonts/font = ExtResource("1_k528p")
+Button/styles/disabled = SubResource("StyleBoxFlat_605w4")
+Button/styles/hover = SubResource("StyleBoxFlat_605w4")
+Button/styles/normal = SubResource("StyleBoxFlat_605w4")
+Button/styles/pressed = SubResource("StyleBoxFlat_605w4")
+HBoxContainer/constants/separation = 10
+Label/colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("2_cu4xe")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_4lwr2")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_eckwq")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_i0b23")
+VBoxContainer/constants/separation = 12

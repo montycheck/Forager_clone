@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bplr80u5f6d35"]
+
+[ext_resource type="Script" uid="uid://dxbu0h7lddut0" path="res://scripts/ui/pause_menu.gd" id="1_6tw0m"]
+[ext_resource type="Texture2D" uid="uid://dkoq41w1gjegg" path="res://assets/icons/play_arrow_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" id="2_0bnpd"]
+[ext_resource type="Script" uid="uid://cnx5d2o14du88" path="res://scripts/ui/pop_button.gd" id="2_0lmf7"]
+[ext_resource type="Texture2D" uid="uid://be6sp8b0ag144" path="res://assets/icons/save_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" id="4_4inpj"]
+[ext_resource type="Texture2D" uid="uid://yvdpu65saemn" path="res://assets/icons/exit_to_app_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" id="5_8fwbo"]
+
+[node name="PauseMenu" type="Control" unique_id=259222486]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6tw0m")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=606462664]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Panel" unique_id=1105333733]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="Panel/Buttons" unique_id=1084140229]
+layout_mode = 2
+text = "Resume"
+icon = ExtResource("2_0bnpd")
+script = ExtResource("2_0lmf7")
+
+[node name="SaveButton" type="Button" parent="Panel/Buttons" unique_id=2085924752]
+layout_mode = 2
+text = "Save Game"
+icon = ExtResource("4_4inpj")
+script = ExtResource("2_0lmf7")
+
+[node name="QuitButton" type="Button" parent="Panel/Buttons" unique_id=705969597]
+layout_mode = 2
+text = "Exit"
+icon = ExtResource("5_8fwbo")
+script = ExtResource("2_0lmf7")

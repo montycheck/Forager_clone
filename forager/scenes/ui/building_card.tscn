@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://so5c4xf0u357"]
+
+[ext_resource type="FontFile" uid="uid://d0c3761ora5wl" path="res://assets/fonts/Fredoka-SemiBold.ttf" id="1_0hmhb"]
+[ext_resource type="Script" uid="uid://beky30hwavqri" path="res://scripts/ui/building_card.gd" id="1_ryuqm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hmhb"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.13333334, 0.13333334, 0.16470589, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.2, 0.23529412, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="BuildingCard" type="PanelContainer" unique_id=870045275]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0hmhb")
+script = ExtResource("1_ryuqm")
+
+[node name="Content" type="HBoxContainer" parent="." unique_id=198698440]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Content" unique_id=119380903]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="InfoBox" type="VBoxContainer" parent="Content" unique_id=1699220367]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="Content/InfoBox" unique_id=1093721435]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0hmhb")
+theme_override_font_sizes/font_size = 18
+
+[node name="CostBox" type="HBoxContainer" parent="Content/InfoBox" unique_id=1810483034]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SelectButton" type="Button" parent="Content" unique_id=1790908286]
+layout_mode = 2
+text = "Build"

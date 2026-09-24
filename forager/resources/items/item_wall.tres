@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bp5g2t6j3nh51"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_ilyb5"]
+[ext_resource type="Texture2D" uid="uid://khlk6gdckhiy" path="res://assets/sprites/icon_wall.png" id="1_wxg1v"]
+
+[resource]
+script = ExtResource("1_ilyb5")
+id = "wall"
+display_name = "Wall"
+icon = ExtResource("1_wxg1v")
+metadata/_custom_type_script = "uid://i8ghxbihqbhs"

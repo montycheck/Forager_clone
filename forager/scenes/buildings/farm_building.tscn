@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://8k44a8uxyixr"]
+
+[ext_resource type="Texture2D" uid="uid://buk3f3hdfbmwe" path="res://assets/sprites/farm_placeholder.png" id="1_fsq7o"]
+[ext_resource type="Script" uid="uid://c3rled46jxw2q" path="res://scripts/world/production_building.gd" id="1_y380k"]
+[ext_resource type="Resource" uid="uid://bm32wkomyreh5" path="res://resources/items/item_wood.tres" id="2_xjd1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y380k"]
+size = Vector2(32, 30)
+
+[node name="FarmBuilding" type="Node2D" unique_id=418343323]
+script = ExtResource("1_y380k")
+produced_item = ExtResource("2_xjd1x")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1848555773]
+texture = ExtResource("1_fsq7o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1726900729]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=207927752]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_y380k")

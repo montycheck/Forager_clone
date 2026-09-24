@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dpurgnrmkxeke"]
+
+[ext_resource type="Script" uid="uid://b6yhy2qeyrjav" path="res://scripts/ui/ingredient_badge.gd" id="1_kp3v4"]
+
+[node name="IngredientBadge" type="HBoxContainer" unique_id=1306695312]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kp3v4")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1097343459]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="AmountLabel" type="Label" parent="." unique_id=1012740303]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.6666667, 1)
+theme_override_font_sizes/font_size = 13

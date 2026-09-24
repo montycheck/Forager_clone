@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://cx3u7odug33ov"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_l5ojl"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="1_x01rd"]
+[ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_haux5"]
+[ext_resource type="Texture2D" uid="uid://bm73b6dqeoady" path="res://assets/sprites/rock_placeholder.png" id="3_haux5"]
+
+[resource]
+script = ExtResource("1_l5ojl")
+id = "stone"
+item = ExtResource("1_x01rd")
+sprite_texture = ExtResource("3_haux5")
+spawn_count = 80
+respawn_time = 30.0
+scene = ExtResource("2_haux5")
+metadata/_custom_type_script = "uid://bpuy8x50oiei4"

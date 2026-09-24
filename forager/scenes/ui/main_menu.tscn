@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dbxlabuh4de5j"]
+
+[ext_resource type="Script" uid="uid://dtqukvnj5mrwe" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
+[ext_resource type="Script" uid="uid://cnx5d2o14du88" path="res://scripts/ui/pop_button.gd" id="2_fe2o3"]
+[ext_resource type="Texture2D" uid="uid://ctvkwnujvcgux" path="res://assets/icons/new_window_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" id="2_m1kxf"]
+[ext_resource type="Script" uid="uid://cu40ffep1ch1b" path="res://scripts/ui/animated_background.gd" id="2_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://cc1dt1r8j8asq" path="res://assets/icons/autoplay_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" id="4_x2yvf"]
+[ext_resource type="FontFile" uid="uid://d0c3761ora5wl" path="res://assets/fonts/Fredoka-SemiBold.ttf" id="6_uhagc"]
+
+[node name="MainMenu" type="Control" unique_id=2079357146]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_sl1te")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1023752942]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_x2yvf")
+color_b = Color(0.18223351, 0.25322407, 0.43953964, 1)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=483972217]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -103.5
+offset_top = 90.0
+offset_right = 103.5
+offset_bottom = 149.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.37254903, 0.8156863, 0.40784314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("6_uhagc")
+theme_override_font_sizes/font_size = 48
+text = "FouRager"
+horizontal_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=551931647]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0.5, 0.5)
+
+[node name="Buttons" type="VBoxContainer" parent="Panel" unique_id=706280186]
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="Panel/Buttons" unique_id=1144979160]
+layout_mode = 2
+text = "New Game"
+icon = ExtResource("2_m1kxf")
+script = ExtResource("2_fe2o3")
+
+[node name="LoadGameButton" type="Button" parent="Panel/Buttons" unique_id=293763809]
+layout_mode = 2
+text = "Load Game"
+icon = ExtResource("4_x2yvf")
+script = ExtResource("2_fe2o3")

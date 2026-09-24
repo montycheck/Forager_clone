@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cfar2x1mqdf7p"]
+
+[ext_resource type="Script" uid="uid://bk21p6ubs28or" path="res://world_generation/noise_preview.gd" id="1_y6ysv"]
+[ext_resource type="Script" uid="uid://ej0qkjoe4ljb" path="res://world_generation/biome_map.gd" id="2_4c8hj"]
+[ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="3_ngehl"]
+[ext_resource type="Resource" uid="uid://6jmlo33vwkj7" path="res://world_generation/biomes/biome_desert.tres" id="4_mfpm8"]
+[ext_resource type="Resource" uid="uid://dpcc1mh8kqbn6" path="res://world_generation/biomes/biome_plain.tres" id="5_oxat2"]
+[ext_resource type="Resource" uid="uid://bgn6s6s4kyfpb" path="res://world_generation/biomes/biome_forest.tres" id="6_28hyv"]
+[ext_resource type="Resource" uid="uid://bxhlbg2xdgqq0" path="res://world_generation/biomes/biome_water.tres" id="7_mfpm8"]
+
+[node name="NoisePreview" type="Node2D" unique_id=1763268662]
+script = ExtResource("1_y6ysv")
+
+[node name="BiomeMap" type="Node" parent="." unique_id=1946888446]
+script = ExtResource("2_4c8hj")
+world_seed = 2
+biomes = Array[ExtResource("3_ngehl")]([ExtResource("4_mfpm8"), ExtResource("5_oxat2"), ExtResource("6_28hyv")])
+water_biome = ExtResource("7_mfpm8")
+world_width = 100
+world_height = 100
+water_threshold = 0.85

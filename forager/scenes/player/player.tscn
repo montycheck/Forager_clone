@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://t0bkgrwfjrw8"]
+
+[ext_resource type="Texture2D" uid="uid://c0ienqptoeloi" path="res://assets/sprites/player_placeholder.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://ny3u6weousys" path="res://scripts/player/player.gd" id="1_dovo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
+size = Vector2(54, 54)
+
+[node name="Player" type="CharacterBody2D" unique_id=694377344 groups=["player"]]
+script = ExtResource("1_dovo2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2107242617]
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="InteractionRange" type="Area2D" parent="." unique_id=143171682]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange" unique_id=470177869]
+shape = SubResource("RectangleShape2D_gmlin")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1829324412]
+texture = ExtResource("1_8afob")
+
+[connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
+[connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]
