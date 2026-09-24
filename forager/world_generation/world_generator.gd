@@ -11,4 +11,4 @@ func generate():
 		for y in range(biome_map.world_height):
 			var biome := biome_map.get_biome_at(x, y)
 			if biome:
-				ground_layer.set_cell(Vector2(x, y), tileset_source_id, biome.ground_atlas_coords)
+				ground_layer.set_cell(Vector2i(x, y), tileset_source_id, biome.ground_atlas_coords)

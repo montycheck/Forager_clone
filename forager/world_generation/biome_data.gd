@@ -9,8 +9,8 @@ class_name BiomeData
 @export var noise_min: float = -1.0
 @export var noise_max: float = 1.0
 
-## La tuile de sol utilisée pour ce biome (on la reliera à l'étape 3)
+
 @export var ground_atlas_coords: Vector2i = Vector2i.ZERO
 
-## Pour plus tard : ressources autorisées dans ce biome
+
 @export var allowed_harvestables: Array[HarvestableData] = []
