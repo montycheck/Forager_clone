@@ -10,4 +10,6 @@ script = ExtResource("2_2824a")
 output_item = ExtResource("3_o81fs")
 input_items = Array[ExtResource("1_27nx8")]([ExtResource("2_gahyt")])
 input_amounts = Array[int]([3])
+required_building_id = "workbench"
+production_time = 4.0
 metadata/_custom_type_script = "uid://c7uv5ll7k0lci"

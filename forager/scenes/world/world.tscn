@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://4p77gafwnlgk" path="res://scenes/ui/skill_tree_ui.tscn" id="8_j2gmx"]
 [ext_resource type="PackedScene" uid="uid://bplr80u5f6d35" path="res://scenes/ui/pause_menu.tscn" id="9_1yooq"]
 [ext_resource type="Script" uid="uid://dvhmq1cub58ue" path="res://scripts/world/resource_spawner.gd" id="9_dlabj"]
+[ext_resource type="PackedScene" uid="uid://kdq87diftwyy" path="res://scenes/ui/crafting_station_ui.tscn" id="11_bt7bg"]
 [ext_resource type="PackedScene" uid="uid://bqlwiafsgud2h" path="res://scenes/ui/build_menu_ui.tscn" id="13_srmg5"]
 [ext_resource type="Script" uid="uid://ej0qkjoe4ljb" path="res://world_generation/biome_map.gd" id="14_wbwoo"]
 [ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="15_tytul"]
@@ -69,6 +70,8 @@ mouse_filter = 2
 [node name="PauseMenu" parent="UILayer" unique_id=259222486 groups=["pause_menu"] instance=ExtResource("9_1yooq")]
 
 [node name="BuildMenuUI" parent="UILayer" unique_id=1965598768 groups=["build_menu_ui"] instance=ExtResource("13_srmg5")]
+
+[node name="CraftingStationUI" parent="UILayer" unique_id=1557618219 groups=["crafting_station_ui"] instance=ExtResource("11_bt7bg")]
 
 [node name="BiomeMap" type="Node" parent="." unique_id=1233440378]
 script = ExtResource("14_wbwoo")

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://kdq87diftwyy"]
+
+[ext_resource type="Script" uid="uid://m8f0a0djgdpc" path="res://scripts/ui/crafting_station_ui.gd" id="1_4utbt"]
+[ext_resource type="FontFile" uid="uid://d0c3761ora5wl" path="res://assets/fonts/Fredoka-SemiBold.ttf" id="2_vek46"]
+[ext_resource type="Texture2D" uid="uid://dle6hvvpffn1h" path="res://assets/icons/close_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" id="3_a2ly6"]
+[ext_resource type="Script" uid="uid://cnx5d2o14du88" path="res://scripts/ui/pop_button.gd" id="4_vm18h"]
+
+[node name="CraftingStationUI" type="Control" unique_id=1409466685]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4utbt")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=470314048]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Root" type="VBoxContainer" parent="Panel" unique_id=387168667]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Panel/Root" unique_id=32952380]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/Root/TopBar" unique_id=642417000]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vek46")
+theme_override_font_sizes/font_size = 20
+text = "Craft"
+
+[node name="Spacer" type="Control" parent="Panel/Root/TopBar" unique_id=476782034]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="Panel/Root/TopBar" unique_id=63775905]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+icon = ExtResource("3_a2ly6")
+script = ExtResource("4_vm18h")
+
+[node name="RecipeSelectBox" type="HBoxContainer" parent="Panel/Root" unique_id=570204387]
+layout_mode = 2
+
+[node name="IngredientsList" type="VBoxContainer" parent="Panel/Root" unique_id=777982482]
+layout_mode = 2
+
+[node name="ProductionProgress" type="ProgressBar" parent="Panel/Root" unique_id=2030035313]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+max_value = 1.0
+show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="Panel/Root" unique_id=1020846430]
+layout_mode = 2
+
+[node name="OutputBox" type="HBoxContainer" parent="Panel/Root" unique_id=852780542]
+layout_mode = 2
+
+[node name="OutputIcon" type="TextureRect" parent="Panel/Root/OutputBox" unique_id=540219596]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="OutputAmountLabel" type="Label" parent="Panel/Root/OutputBox" unique_id=750384159]
+layout_mode = 2
+
+[node name="CollectButton" type="Button" parent="Panel/Root/OutputBox" unique_id=719111358]
+layout_mode = 2
+text = "Collect"

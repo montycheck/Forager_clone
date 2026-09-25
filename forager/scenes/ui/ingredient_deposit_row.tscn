@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ffudro6ghft3"]
+
+[ext_resource type="Script" uid="uid://c73kfyl1xp3mu" path="res://scripts/ui/ingredient_deposit_row.gd" id="1_hkm5r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjpmh"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.13333334, 0.13333334, 0.16470589, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.2, 0.23529412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="IngredientDepositRow" type="PanelContainer" unique_id=2136573111]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjpmh")
+script = ExtResource("1_hkm5r")
+
+[node name="Content" type="HBoxContainer" parent="." unique_id=1710680879]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="Content" unique_id=1280071814]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="AmountLabel" type="Label" parent="Content" unique_id=1424386122]
+layout_mode = 2

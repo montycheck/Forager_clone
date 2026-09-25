@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://d0c3761ora5wl" path="res://assets/fonts/Fredoka-SemiBold.ttf" id="2_kf18i"]
 [ext_resource type="Script" uid="uid://cnx5d2o14du88" path="res://scripts/ui/pop_button.gd" id="3_ngbsw"]
 [ext_resource type="Texture2D" uid="uid://dle6hvvpffn1h" path="res://assets/icons/close_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.png" id="3_xxak1"]
+[ext_resource type="Script" uid="uid://dctqopdnhgu4u" path="res://scripts/ui/skill_tree_lines.gd" id="5_okeyf"]
 
 [node name="SkillTreeUI" type="Control" unique_id=1985723410]
 visible = false
@@ -51,8 +52,15 @@ layout_mode = 2
 [node name="PointsLabel" type="Label" parent="Panel/Root/Content" unique_id=1264745487]
 layout_mode = 2
 
-[node name="SkillsGrid" type="GridContainer" parent="Panel/Root/Content" unique_id=1095008771]
+[node name="SkillsScroll" type="ScrollContainer" parent="Panel/Root/Content" unique_id=626456714]
 layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 6
+size_flags_vertical = 3
+
+[node name="SkillsCanvas" type="Control" parent="Panel/Root/Content/SkillsScroll" unique_id=1092398102]
+layout_mode = 2
+
+[node name="TreeLines" type="Control" parent="Panel/Root/Content/SkillsScroll/SkillsCanvas" unique_id=1919945666]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_okeyf")

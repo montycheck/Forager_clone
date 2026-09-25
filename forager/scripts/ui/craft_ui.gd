@@ -12,12 +12,12 @@ func _ready() -> void:
 	UIManager.menu_closed.connect(_on_menu_closed)
 	visible = false
 
-	for recipe in _load_all_recipes():
+	for recipe in _load_hand_recipes():
 		var entry := RecipeEntryScene.instantiate()
 		entry.recipe = recipe
 		recipes_list.add_child(entry)
 
-func _load_all_recipes() -> Array[Recipe]:
+func _load_hand_recipes() -> Array[Recipe]:
 	var recipes: Array[Recipe] = []
 
 	var dir := DirAccess.open(RECIPES_FOLDER)
@@ -31,7 +31,7 @@ func _load_all_recipes() -> Array[Recipe]:
 	while file_name != "":
 		if file_name.ends_with(".tres"):
 			var resource = load(RECIPES_FOLDER + file_name)
-			if resource is Recipe:
+			if resource is Recipe and resource.required_building_id == "":
 				recipes.append(resource)
 		file_name = dir.get_next()
 

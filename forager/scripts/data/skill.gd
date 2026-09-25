@@ -6,3 +6,4 @@ class_name Skill
 @export var icon: Texture2D
 @export var description: String = ""
 @export var required_skill_id: String = ""
+@export var tree_position: Vector2i = Vector2i.ZERO

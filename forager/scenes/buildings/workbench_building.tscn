@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://eku2b8s7unil"]
+
+[ext_resource type="Script" uid="uid://crv7k15txjnhg" path="res://scripts/world/crafting_station.gd" id="1_0tarv"]
+[ext_resource type="Texture2D" uid="uid://bynjg3a1y6osl" path="res://assets/sprites/workbench_placeholder.png" id="1_sbxj0"]
+[ext_resource type="FontFile" uid="uid://d0c3761ora5wl" path="res://assets/fonts/Fredoka-SemiBold.ttf" id="3_xk6b2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tarv"]
+size = Vector2(28, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk6b2"]
+size = Vector2(38, 35)
+
+[node name="WorkbenchBuilding" type="Node2D" unique_id=1194901117]
+script = ExtResource("1_0tarv")
+building_id = "workbench"
+station_display_name = "Workbench"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=265440006]
+texture = ExtResource("1_sbxj0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1164900332]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1849487970]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_0tarv")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1242083666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1443087463]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_xk6b2")
+
+[node name="OutputLabel" type="Label" parent="." unique_id=1878058682]
+offset_left = -8.0
+offset_top = -40.0
+offset_right = 32.0
+offset_bottom = -20.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
+theme_override_fonts/font = ExtResource("3_xk6b2")
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1

@@ -44,8 +44,19 @@ func _build_styles() -> void:
 	style_unlocked.set_border_width_all(2)
 	style_unlocked.border_color = Color("#5fd068")
 
+func is_reachable() -> bool:
+	if skill == null:
+		return false
+	if skill.required_skill_id == "":
+		return true
+	return PlayerProgress.is_skill_unlocked(skill.required_skill_id)
+
 func refresh() -> void:
 	if skill == null:
+		return
+
+	visible = is_reachable()
+	if not visible:
 		return
 
 	if PlayerProgress.is_skill_unlocked(skill.id):
@@ -53,10 +64,7 @@ func refresh() -> void:
 		icon.modulate = Color(1, 1, 1, 1)
 		return
 
-	var prereq_ok := skill.required_skill_id == "" or PlayerProgress.is_skill_unlocked(skill.required_skill_id)
-	var can_afford := PlayerProgress.skill_points > 0
-
-	if prereq_ok and can_afford:
+	if PlayerProgress.skill_points > 0:
 		add_theme_stylebox_override("panel", style_available)
 		icon.modulate = Color(1, 1, 1, 1)
 	else:

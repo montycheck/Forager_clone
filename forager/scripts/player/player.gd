@@ -15,16 +15,24 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		var target := _get_closest_target()
-		if target != null and target.has_method("hit"):
-			target.hit()
+		if target != null:
+			if target.has_method("hit"):
+				target.hit()
+			elif target.has_method("interact"):
+				target.interact()
+
 	if event.is_action_pressed("debug_print_inventory"):
 		Inventory.print_inventory()
+
 	if event.is_action_pressed("toggle_craft"):
 		get_tree().get_first_node_in_group("craft_ui").toggle()
+
 	if event.is_action_pressed("toggle_skills"):
 		get_tree().get_first_node_in_group("skill_tree_ui").toggle()
+
 	if event.is_action_pressed("toggle_build_menu"):
 		get_tree().get_first_node_in_group("build_menu_ui").toggle()
+
 	if event.is_action_pressed("toggle_pause"):
 		if BuildManager.is_placing:
 			BuildManager.cancel_placing()
@@ -52,7 +60,7 @@ func _get_closest_target() -> Node2D:
 
 func _on_interaction_range_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
-	if parent.has_method("hit"):
+	if parent.has_method("hit") or parent.has_method("interact"):
 		targets_in_range.append(parent)
 
 func _on_interaction_range_area_exited(area: Area2D) -> void:

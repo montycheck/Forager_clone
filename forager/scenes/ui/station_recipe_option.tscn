@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dlsekfkc5kocy"]
+
+[ext_resource type="Script" uid="uid://doyh6c32ox7gx" path="res://scripts/ui/station_recipe_option.gd" id="1_iipyx"]
+
+[node name="StationRecipeOption" type="Button" unique_id=1556125515]
+custom_minimum_size = Vector2(60, 60)
+offset_right = 40.0
+offset_bottom = 20.0
+script = ExtResource("1_iipyx")
