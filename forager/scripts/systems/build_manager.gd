@@ -11,7 +11,10 @@ func _ready() -> void:
 	UIManager.menu_closed.connect(_on_menu_closed)
 
 func start_placing(building: Building) -> void:
-	if building.required_skill_id != "" and not PlayerProgress.is_skill_unlocked(building.required_skill_id):
+	var skill_ok := building.required_skill_id == "" or PlayerProgress.is_skill_unlocked(building.required_skill_id)
+	var stage_ok := building.required_stage_id == "" or PlayerProgress.is_stage_validated(building.required_stage_id)
+
+	if not (skill_ok and stage_ok):
 		return
 
 	if is_placing and current_building == building:

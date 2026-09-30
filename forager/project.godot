@@ -38,6 +38,7 @@ pause_menu=""
 y_sort_root=""
 build_menu_ui=""
 crafting_station_ui=""
+requester_ui=""
 
 [gui]
 

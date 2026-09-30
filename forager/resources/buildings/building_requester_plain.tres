@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://cmgsy1oliytpg"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_fujno"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="2_awlqt"]
+[ext_resource type="Texture2D" uid="uid://dgjl86vxx0u0t" path="res://assets/sprites/requester_placeholder.png" id="2_fvjjo"]
+[ext_resource type="PackedScene" uid="uid://bl6ayap8e3g20" path="res://scenes/buildings/requester_building.tscn" id="3_8to0d"]
+
+[resource]
+script = ExtResource("2_awlqt")
+id = "requester_plain"
+display_name = "Requester - Plain"
+icon = ExtResource("2_fvjjo")
+scene = ExtResource("3_8to0d")
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

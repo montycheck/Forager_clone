@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://bu5deua7sp68p"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_4nlxb"]
+[ext_resource type="Resource" uid="uid://f6y00mvmiiya" path="res://resources/items/item_clay.tres" id="1_axxy2"]
+[ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_v1qlp"]
+[ext_resource type="Texture2D" uid="uid://b0oipupy4vwqu" path="res://assets/sprites/clay_pond_placeholder.png" id="4_ax4lc"]
+
+[resource]
+script = ExtResource("1_4nlxb")
+id = "clay"
+item = ExtResource("1_axxy2")
+sprite_texture = ExtResource("4_ax4lc")
+spawn_count = 30
+respawn_time = 30.0
+scene = ExtResource("2_v1qlp")
+metadata/_custom_type_script = "uid://bpuy8x50oiei4"

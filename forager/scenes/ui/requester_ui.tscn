@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dl5wk3klj62ls"]
+
+[ext_resource type="Script" uid="uid://cviy3e56goffm" path="res://scripts/ui/requester_ui.gd" id="1_ldx4a"]
+
+[node name="RequesterUI" type="Control" unique_id=140627815]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ldx4a")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1092455457]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -62.0
+offset_right = 56.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Root" type="VBoxContainer" parent="Panel" unique_id=2043320853]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Panel/Root" unique_id=850315896]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/Root/TopBar" unique_id=1427822441]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/Root/TopBar" unique_id=16362066]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="Panel/Root/TopBar" unique_id=1877801309]
+layout_mode = 2
+text = "X"
+
+[node name="StageLabel" type="Label" parent="Panel/Root" unique_id=1579449265]
+layout_mode = 2
+
+[node name="DepositSlot" type="VBoxContainer" parent="Panel/Root" unique_id=399343903]
+layout_mode = 2

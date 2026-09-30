@@ -47,9 +47,11 @@ func _build_styles() -> void:
 func is_reachable() -> bool:
 	if skill == null:
 		return false
-	if skill.required_skill_id == "":
-		return true
-	return PlayerProgress.is_skill_unlocked(skill.required_skill_id)
+	if skill.required_skill_id != "" and not PlayerProgress.is_skill_unlocked(skill.required_skill_id):
+		return false
+	if skill.required_stage_id != "" and not PlayerProgress.is_stage_validated(skill.required_stage_id):
+		return false
+	return true
 
 func refresh() -> void:
 	if skill == null:

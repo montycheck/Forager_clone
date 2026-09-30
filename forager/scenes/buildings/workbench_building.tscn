@@ -30,12 +30,15 @@ shape = SubResource("RectangleShape2D_0tarv")
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_xk6b2")
 
-[node name="OutputLabel" type="Label" parent="." unique_id=1878058682]
-offset_left = -8.0
-offset_top = -40.0
-offset_right = 32.0
-offset_bottom = -20.0
+[node name="OutputIcon" type="TextureRect" parent="." unique_id=1385830178]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 3
+
+[node name="OutputLabel" type="Label" parent="." unique_id=1958356401]
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.9607843, 0.6509804, 0.13725491, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
 theme_override_fonts/font = ExtResource("3_xk6b2")
 theme_override_font_sizes/font_size = 14
-horizontal_alignment = 1

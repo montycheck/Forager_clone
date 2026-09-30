@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bplr80u5f6d35" path="res://scenes/ui/pause_menu.tscn" id="9_1yooq"]
 [ext_resource type="Script" uid="uid://dvhmq1cub58ue" path="res://scripts/world/resource_spawner.gd" id="9_dlabj"]
 [ext_resource type="PackedScene" uid="uid://kdq87diftwyy" path="res://scenes/ui/crafting_station_ui.tscn" id="11_bt7bg"]
+[ext_resource type="PackedScene" uid="uid://dl5wk3klj62ls" path="res://scenes/ui/requester_ui.tscn" id="12_wbwoo"]
 [ext_resource type="PackedScene" uid="uid://bqlwiafsgud2h" path="res://scenes/ui/build_menu_ui.tscn" id="13_srmg5"]
 [ext_resource type="Script" uid="uid://ej0qkjoe4ljb" path="res://world_generation/biome_map.gd" id="14_wbwoo"]
 [ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="15_tytul"]
@@ -72,6 +73,15 @@ mouse_filter = 2
 [node name="BuildMenuUI" parent="UILayer" unique_id=1965598768 groups=["build_menu_ui"] instance=ExtResource("13_srmg5")]
 
 [node name="CraftingStationUI" parent="UILayer" unique_id=1557618219 groups=["crafting_station_ui"] instance=ExtResource("11_bt7bg")]
+
+[node name="RequesterUI" parent="UILayer" unique_id=140627815 groups=["requester_ui"] instance=ExtResource("12_wbwoo")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BiomeMap" type="Node" parent="." unique_id=1233440378]
 script = ExtResource("14_wbwoo")

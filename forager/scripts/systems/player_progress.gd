@@ -3,12 +3,14 @@ extends Node
 signal xp_changed
 signal level_up(new_level: int)
 signal skill_points_changed
+signal stage_validated(stage_id: String)
 
 var current_xp: int = 0
 var current_level: int = 1
 var skill_points: int = 0
 
 var unlocked_skills: Array[String] = []
+var validated_stages: Array[String] = []
 
 const XP_PER_LEVEL: int = 100
 
@@ -41,20 +43,35 @@ func unlock_skill(skill_id: String) -> bool:
 	skill_points_changed.emit()
 	return true
 
-func save_data():
+func is_stage_validated(stage_id: String) -> bool:
+	return validated_stages.has(stage_id)
+
+func validate_stage(stage_id: String) -> void:
+	if is_stage_validated(stage_id):
+		return
+	validated_stages.append(stage_id)
+	stage_validated.emit(stage_id)
+	skill_points_changed.emit()
+
+func save_data() -> Dictionary:
 	return {
 		"xp": current_xp,
 		"level": current_level,
 		"skill_points": skill_points,
-		"unlocked_skills": unlocked_skills
+		"unlocked_skills": unlocked_skills,
+		"validated_stages": validated_stages
 	}
 
-func load_data(data: Dictionary):
+func load_data(data: Dictionary) -> void:
 	current_xp = data["xp"]
 	current_level = data["level"]
 	skill_points = data["skill_points"]
 	unlocked_skills.clear()
 	for skill_id in data["unlocked_skills"]:
 		unlocked_skills.append(skill_id)
+	validated_stages.clear()
+	if data.has("validated_stages"):
+		for stage_id in data["validated_stages"]:
+			validated_stages.append(stage_id)
 	xp_changed.emit()
 	skill_points_changed.emit()

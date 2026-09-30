@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://cvo5ye7ex2mm7"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_1irkg"]
+[ext_resource type="Resource" uid="uid://dgc7lsrs4hmh2" path="res://resources/items/item_resin.tres" id="1_mfwws"]
+[ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_yd53o"]
+[ext_resource type="Texture2D" uid="uid://crsrd6ruvaaod" path="res://assets/sprites/resin_placeholder.png" id="4_7mnqo"]
+
+[resource]
+script = ExtResource("1_1irkg")
+item = ExtResource("1_mfwws")
+sprite_texture = ExtResource("4_7mnqo")
+max_hits = 4
+spawn_count = 25
+respawn_time = 35.0
+scene = ExtResource("2_yd53o")
+metadata/_custom_type_script = "uid://bpuy8x50oiei4"

@@ -46,8 +46,9 @@ func _build_cost_display() -> void:
 
 func _update_state() -> void:
 	var skill_ok := building.required_skill_id == "" or PlayerProgress.is_skill_unlocked(building.required_skill_id)
+	var stage_ok := building.required_stage_id == "" or PlayerProgress.is_stage_validated(building.required_stage_id)
 
-	if not skill_ok:
+	if not (skill_ok and stage_ok):
 		select_button.text = "Verrouillé"
 		select_button.disabled = true
 		select_button.remove_theme_stylebox_override("normal")

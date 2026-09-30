@@ -3,6 +3,7 @@ extends Node2D
 @export var building_id: String = ""
 @export var station_display_name: String = ""
 
+@onready var output_icon: TextureRect = get_node_or_null("OutputIcon")
 @onready var output_label: Label = get_node_or_null("OutputLabel")
 
 var is_ghost: bool = false
@@ -17,6 +18,15 @@ const BAR_OFFSET := Vector2(-BAR_WIDTH / 2.0, -30.0)
 
 func _ready() -> void:
 	add_to_group("persist")
+
+	if output_icon != null:
+		output_icon.size = Vector2(16, 16)
+		output_icon.position = Vector2(-24, -48)
+
+	if output_label != null:
+		output_label.size = Vector2(24, 16)
+		output_label.position = Vector2(-6, -48)
+
 	_update_output_label()
 
 func set_ghost(value: bool) -> void:
@@ -107,11 +117,19 @@ func collect_output() -> void:
 	_update_output_label()
 
 func _update_output_label() -> void:
-	if output_label == null:
+	if output_icon == null or output_label == null:
 		return
+
 	var total := get_output_total()
-	output_label.text = str(total)
-	output_label.visible = total > 0
+	var show := total > 0
+
+	output_icon.visible = show
+	output_label.visible = show
+
+	if show:
+		output_label.text = str(total)
+		var first_id = output_stock.keys()[0]
+		output_icon.texture = output_stock[first_id]["item"].icon
 
 func interact() -> void:
 	var ui = get_tree().get_first_node_in_group("crafting_station_ui")

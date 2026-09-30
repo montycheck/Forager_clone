@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://np8u1tor371g"]
+
+[ext_resource type="Texture2D" uid="uid://d1qeap8dqpw3w" path="res://assets/sprites/icon_leaf.png" id="1_hfd2u"]
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_r3mpx"]
+
+[resource]
+script = ExtResource("1_r3mpx")
+id = "leaves"
+display_name = "Leaves"
+icon = ExtResource("1_hfd2u")
+metadata/_custom_type_script = "uid://i8ghxbihqbhs"

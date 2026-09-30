@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dgc7lsrs4hmh2"]
+
+[ext_resource type="Texture2D" uid="uid://d1oup5w66cda2" path="res://assets/sprites/icon_resin.png" id="1_en4n2"]
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_lp6qa"]
+
+[resource]
+script = ExtResource("1_lp6qa")
+id = "resin"
+display_name = "Resin"
+icon = ExtResource("1_en4n2")
+metadata/_custom_type_script = "uid://i8ghxbihqbhs"

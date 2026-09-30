@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bl6ayap8e3g20"]
+
+[ext_resource type="Texture2D" uid="uid://dgjl86vxx0u0t" path="res://assets/sprites/requester_placeholder.png" id="1_b3p1i"]
+[ext_resource type="Script" uid="uid://cw1p1ofrnrfys" path="res://scripts/world/requester_building.gd" id="1_jfxtx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfxtx"]
+size = Vector2(64, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3bb1"]
+size = Vector2(80, 56)
+
+[node name="RequesterBuilding" type="Node2D" unique_id=261986314]
+script = ExtResource("1_jfxtx")
+biome_name = "Plain"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1345648201]
+texture = ExtResource("1_b3p1i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1743988648]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2036150452]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_jfxtx")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=735238610]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1082758229]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_i3bb1")

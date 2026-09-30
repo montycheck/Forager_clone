@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://eb8mdu4ifn88"]
+
+[ext_resource type="Resource" uid="uid://btoy2w7s64rul" path="res://resources/items/item_coal.tres" id="1_3nmy3"]
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_tlbq0"]
+[ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_nwokb"]
+[ext_resource type="Texture2D" uid="uid://csrtry61rlipq" path="res://assets/sprites/coal_node_placeholder.png" id="4_2dgrt"]
+
+[resource]
+script = ExtResource("1_tlbq0")
+id = "coal"
+item = ExtResource("1_3nmy3")
+sprite_texture = ExtResource("4_2dgrt")
+spawn_count = 40
+respawn_time = 25.0
+scene = ExtResource("2_nwokb")
+metadata/_custom_type_script = "uid://bpuy8x50oiei4"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://dqtervracei46"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_7cm6s"]
+[ext_resource type="Resource" uid="uid://np8u1tor371g" path="res://resources/items/item_leaves.tres" id="1_llpmp"]
+[ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_gnrr4"]
+[ext_resource type="Texture2D" uid="uid://but2oftb0et0y" path="res://assets/sprites/bush_placeholder.png" id="4_e83l5"]
+
+[resource]
+script = ExtResource("1_7cm6s")
+id = "leaves"
+item = ExtResource("1_llpmp")
+sprite_texture = ExtResource("4_e83l5")
+max_hits = 2
+amount_per_hit = 2
+spawn_count = 50
+respawn_time = 15.0
+scene = ExtResource("2_gnrr4")
+metadata/_custom_type_script = "uid://bpuy8x50oiei4"
