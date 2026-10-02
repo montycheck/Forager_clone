@@ -58,6 +58,11 @@ func _draw() -> void:
 	draw_rect(Rect2(BAR_OFFSET, Vector2(BAR_WIDTH * progress, BAR_HEIGHT)), Color("#5fd068"))
 
 func _has_enough_stock(recipe: Recipe) -> bool:
+	# Bloque la production si verrouillée, ou si l'upgrade attend déjà d'être collectée
+	if not recipe.is_unlocked():
+		return false
+	if recipe.output_item is UpgradeItem and output_stock.has(recipe.output_item.id):
+		return false
 	for i in recipe.input_items.size():
 		var id: String = recipe.input_items[i].id
 		var needed: int = recipe.input_amounts[i]

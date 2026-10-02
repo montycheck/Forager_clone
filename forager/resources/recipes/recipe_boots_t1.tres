@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://bguvv0qdj358l"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_ul3e2"]
+[ext_resource type="Script" uid="uid://c7uv5ll7k0lci" path="res://scripts/data/recipe.gd" id="2_0jany"]
+[ext_resource type="Resource" uid="uid://np8u1tor371g" path="res://resources/items/item_leaves.tres" id="2_02upi"]
+[ext_resource type="Resource" uid="uid://8s4jdwectvoo" path="res://resources/items/item_rope.tres" id="3_ix2my"]
+[ext_resource type="Resource" uid="uid://cr68jcohavoux" path="res://resources/items/item_boots_t1.tres" id="4_m506h"]
+
+[resource]
+script = ExtResource("2_0jany")
+output_item = ExtResource("4_m506h")
+input_items = Array[ExtResource("1_ul3e2")]([ExtResource("3_ix2my"), ExtResource("2_02upi")])
+input_amounts = Array[int]([1, 3])
+required_building_id = "workbench"
+production_time = 5.0
+metadata/_custom_type_script = "uid://c7uv5ll7k0lci"

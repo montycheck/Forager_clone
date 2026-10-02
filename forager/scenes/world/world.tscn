@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://kdq87diftwyy" path="res://scenes/ui/crafting_station_ui.tscn" id="11_bt7bg"]
 [ext_resource type="PackedScene" uid="uid://dl5wk3klj62ls" path="res://scenes/ui/requester_ui.tscn" id="12_wbwoo"]
 [ext_resource type="PackedScene" uid="uid://bqlwiafsgud2h" path="res://scenes/ui/build_menu_ui.tscn" id="13_srmg5"]
+[ext_resource type="Script" uid="uid://dp7ev1yyt48e0" path="res://scripts/ui/upgrades_ui.gd" id="13_tytul"]
 [ext_resource type="Script" uid="uid://ej0qkjoe4ljb" path="res://world_generation/biome_map.gd" id="14_wbwoo"]
 [ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="15_tytul"]
 [ext_resource type="Resource" uid="uid://dpcc1mh8kqbn6" path="res://world_generation/biomes/biome_plain.tres" id="16_t634p"]
@@ -83,6 +84,13 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="UpgradesUI" type="Control" parent="UILayer" unique_id=564213397]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_tytul")
 
 [node name="BiomeMap" type="Node" parent="." unique_id=1233440378]
 script = ExtResource("14_wbwoo")

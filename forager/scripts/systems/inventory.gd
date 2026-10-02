@@ -6,6 +6,10 @@ var slots: Array = []
 var max_slots: int = 20
 
 func add_item(item: Item, amount: int = 1) -> void:
+	if item is UpgradeItem:
+		PlayerStats.acquire(item)
+		return
+	
 	for slot in slots:
 		if slot["item"].id == item.id and slot["amount"] < item.max_stack:
 			slot["amount"] += amount

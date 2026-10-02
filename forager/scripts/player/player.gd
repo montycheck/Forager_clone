@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	input_direction.x = Input.get_axis("move_left", "move_right")
 	input_direction.y = Input.get_axis("move_up", "move_down")
 	input_direction = input_direction.normalized()
-	velocity = input_direction * speed
+	velocity = input_direction * speed * PlayerStats.get_value(StatModifier.Stat.MOVE_SPEED)
 	move_and_slide()
 
 	harvest_timer += delta
@@ -20,11 +20,12 @@ func _physics_process(delta: float) -> void:
 		var target := _get_closest_target()
 		if target != null and target.has_method("hit"):
 			if harvest_timer >= _get_effective_harvest_delay():
-				target.hit()
+				target.hit(PlayerStats.get_hit_power())
 				harvest_timer = 0.0
 
 func _get_effective_harvest_delay() -> float:
-	return harvest_delay / max(PlayerProgress.harvest_speed_multiplier, 0.01)
+	var multiplier: float = PlayerProgress.harvest_speed_multiplier * PlayerStats.get_value(StatModifier.Stat.HARVEST_SPEED)
+	return harvest_delay / max(multiplier, 0.01)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):

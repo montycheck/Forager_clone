@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UpgradeItem" format=3 uid="uid://10d1ty0tpijc"]
+
+[ext_resource type="Script" uid="uid://gdmr5voec0r4" path="res://scripts/data/stat_modifier.gd" id="1_jn25w"]
+[ext_resource type="Script" uid="uid://cq3wubuvv1w1c" path="res://scripts/data/upgrade_item.gd" id="2_ej4im"]
+[ext_resource type="Texture2D" uid="uid://ba20cfhhq3vco" path="res://assets/sprites/icon_upgrade_gloves_t1.png" id="2_n4a7o"]
+
+[sub_resource type="Resource" id="Resource_s4q4d"]
+script = ExtResource("1_jn25w")
+value = 0.15
+metadata/_custom_type_script = "uid://gdmr5voec0r4"
+
+[resource]
+script = ExtResource("2_ej4im")
+line_id = "gloves"
+effects = Array[ExtResource("1_jn25w")]([SubResource("Resource_s4q4d")])
+id = "gloves_t1"
+display_name = "Leaves Gloves"
+icon = ExtResource("2_n4a7o")
+max_stack = 1
+metadata/_custom_type_script = "uid://cq3wubuvv1w1c"

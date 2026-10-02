@@ -22,6 +22,7 @@ PlayerProgress="*uid://b4qmgi7jasoe2"
 SaveManager="*uid://ccyouqg37c4hm"
 UIManager="*uid://cm54a4c6u6mlk"
 UITransitions="*uid://baj33g1u2avb5"
+PlayerStats="*uid://byxwa61kmkw51"
 
 [display]
 

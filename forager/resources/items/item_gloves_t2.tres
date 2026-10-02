@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UpgradeItem" format=3 uid="uid://c5bsn4a1rujrk"]
+
+[ext_resource type="Script" uid="uid://gdmr5voec0r4" path="res://scripts/data/stat_modifier.gd" id="1_seroa"]
+[ext_resource type="Script" uid="uid://cq3wubuvv1w1c" path="res://scripts/data/upgrade_item.gd" id="2_dq4vs"]
+[ext_resource type="Texture2D" uid="uid://fxw33ub1pf0h" path="res://assets/sprites/icon_upgrade_gloves_t2.png" id="2_sc0m8"]
+
+[sub_resource type="Resource" id="Resource_0f5r1"]
+script = ExtResource("1_seroa")
+value = 0.35
+metadata/_custom_type_script = "uid://gdmr5voec0r4"
+
+[resource]
+script = ExtResource("2_dq4vs")
+line_id = "gloves"
+tier = 2
+effects = Array[ExtResource("1_seroa")]([SubResource("Resource_0f5r1")])
+id = "gloves_t2"
+display_name = "Iron gloves"
+icon = ExtResource("2_sc0m8")
+max_stack = 1
+metadata/_custom_type_script = "uid://cq3wubuvv1w1c"

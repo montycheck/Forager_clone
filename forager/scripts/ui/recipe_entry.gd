@@ -31,8 +31,7 @@ func _update_button_state() -> void:
 	if recipe == null:
 		return
 
-	var skill_ok := recipe.required_skill_id == "" or PlayerProgress.is_skill_unlocked(recipe.required_skill_id)
-	craft_button.disabled = not (Inventory.has_ingredients(recipe) and skill_ok)
+	craft_button.disabled = not (Inventory.has_ingredients(recipe) and recipe.is_unlocked())
 
 func _on_craft_button_pressed() -> void:
 	Inventory.craft(recipe)
