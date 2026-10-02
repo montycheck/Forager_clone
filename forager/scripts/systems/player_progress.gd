@@ -8,6 +8,7 @@ signal stage_validated(stage_id: String)
 var current_xp: int = 0
 var current_level: int = 1
 var skill_points: int = 0
+var harvest_speed_multiplier: float = 1.0
 
 var unlocked_skills: Array[String] = []
 var validated_stages: Array[String] = []
@@ -59,7 +60,8 @@ func save_data() -> Dictionary:
 		"level": current_level,
 		"skill_points": skill_points,
 		"unlocked_skills": unlocked_skills,
-		"validated_stages": validated_stages
+		"validated_stages": validated_stages,
+		"harvest_speed_multiplier": harvest_speed_multiplier
 	}
 
 func load_data(data: Dictionary) -> void:
@@ -73,5 +75,7 @@ func load_data(data: Dictionary) -> void:
 	if data.has("validated_stages"):
 		for stage_id in data["validated_stages"]:
 			validated_stages.append(stage_id)
+	if data.has("harvest_speed_multiplier"):
+		harvest_speed_multiplier = data["harvest_speed_multiplier"]
 	xp_changed.emit()
 	skill_points_changed.emit()

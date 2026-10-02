@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dr848qnx81tef"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_eehlb"]
+[ext_resource type="Texture2D" uid="uid://ly1rwbfp60gh" path="res://assets/sprites/icon_sticky_mixture.png" id="1_twmep"]
+
+[resource]
+script = ExtResource("1_eehlb")
+id = "sticky_mixture"
+display_name = "Sticky Mixture"
+icon = ExtResource("1_twmep")
+metadata/_custom_type_script = "uid://i8ghxbihqbhs"

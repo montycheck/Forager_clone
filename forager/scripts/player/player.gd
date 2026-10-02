@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @export var speed: float = 100.0
+@export var harvest_delay: float = 0.4
 
 var targets_in_range: Array = []
+var harvest_timer: float = 0.0
 
 func _physics_process(delta: float) -> void:
 	var input_direction := Vector2.ZERO
@@ -12,14 +14,23 @@ func _physics_process(delta: float) -> void:
 	velocity = input_direction * speed
 	move_and_slide()
 
+	harvest_timer += delta
+
+	if Input.is_action_pressed("interact"):
+		var target := _get_closest_target()
+		if target != null and target.has_method("hit"):
+			if harvest_timer >= _get_effective_harvest_delay():
+				target.hit()
+				harvest_timer = 0.0
+
+func _get_effective_harvest_delay() -> float:
+	return harvest_delay / max(PlayerProgress.harvest_speed_multiplier, 0.01)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		var target := _get_closest_target()
-		if target != null:
-			if target.has_method("hit"):
-				target.hit()
-			elif target.has_method("interact"):
-				target.interact()
+		if target != null and target.has_method("interact"):
+			target.interact()
 
 	if event.is_action_pressed("debug_print_inventory"):
 		Inventory.print_inventory()

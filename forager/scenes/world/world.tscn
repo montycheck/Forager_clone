@@ -50,6 +50,7 @@ y_sort_enabled = true
 [node name="Player" parent="YSortRoot" unique_id=694377344 instance=ExtResource("2_sl2e5")]
 position = Vector2(64, 64)
 speed = 400.0
+harvest_delay = 0.55
 
 [node name="Camera2D" type="Camera2D" parent="YSortRoot/Player" unique_id=1839218965]
 

@@ -1,13 +1,11 @@
 [gd_resource type="Resource" script_class="ProgressionStage" format=3 uid="uid://b3nx7dhreq5cj"]
 
+[ext_resource type="Resource" uid="uid://dr848qnx81tef" path="res://resources/items/item_sticky_mixture.tres" id="1_1u15c"]
 [ext_resource type="Script" uid="uid://bsuj7yuojk0uk" path="res://scripts/data/progression_stage.gd" id="1_b1p67"]
-[ext_resource type="Resource" uid="uid://bm32wkomyreh5" path="res://resources/items/item_wood.tres" id="1_sq7fv"]
-[ext_resource type="Resource" uid="uid://c7ywpkowqdj3i" path="res://resources/items/item_stick.tres" id="2_axehr"]
 
 [resource]
 script = ExtResource("1_b1p67")
 id = "plain_1"
 biome_name = "Plain"
-key_item = ExtResource("1_sq7fv")
-reward_item = ExtResource("2_axehr")
+key_item = ExtResource("1_1u15c")
 metadata/_custom_type_script = "uid://bsuj7yuojk0uk"

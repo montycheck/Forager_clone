@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://dd68swxdtfvf"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_8wdwn"]
+[ext_resource type="Script" uid="uid://c7uv5ll7k0lci" path="res://scripts/data/recipe.gd" id="2_c8lbc"]
+[ext_resource type="Resource" uid="uid://f6y00mvmiiya" path="res://resources/items/item_clay.tres" id="2_ri5ie"]
+[ext_resource type="Resource" uid="uid://dgc7lsrs4hmh2" path="res://resources/items/item_resin.tres" id="3_7ew2l"]
+[ext_resource type="Resource" uid="uid://np8u1tor371g" path="res://resources/items/item_leaves.tres" id="4_ibhbe"]
+[ext_resource type="Resource" uid="uid://dr848qnx81tef" path="res://resources/items/item_sticky_mixture.tres" id="5_14fuw"]
+
+[resource]
+script = ExtResource("2_c8lbc")
+output_item = ExtResource("5_14fuw")
+input_items = Array[ExtResource("1_8wdwn")]([ExtResource("2_ri5ie"), ExtResource("3_7ew2l"), ExtResource("4_ibhbe")])
+input_amounts = Array[int]([1, 2, 2])
+required_building_id = "workbench"
+metadata/_custom_type_script = "uid://c7uv5ll7k0lci"

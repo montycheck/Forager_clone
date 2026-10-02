@@ -9,5 +9,6 @@ id = "building_mine"
 display_name = "Building Mine"
 icon = ExtResource("1_8dcwf")
 description = "Unlock build of the Mine"
+required_stage_id = "plain_1"
 tree_position = Vector2i(2, 0)
 metadata/_custom_type_script = "uid://bmwb35cmr78ya"
