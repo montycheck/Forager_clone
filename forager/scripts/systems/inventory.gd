@@ -56,18 +56,6 @@ func remove_items(items: Array[Item], amounts: Array[int]) -> void:
 	for i in items.size():
 		remove_item(items[i], amounts[i])
 
-func has_ingredients(recipe: Recipe) -> bool:
-	return has_items(recipe.input_items, recipe.input_amounts)
-
-func craft(recipe: Recipe) -> bool:
-	if not has_ingredients(recipe):
-		return false
-
-	remove_items(recipe.input_items, recipe.input_amounts)
-	add_item(recipe.output_item, recipe.output_amount)
-	PlayerProgress.add_xp(10)
-	return true
-
 func print_inventory() -> void:
 	print("--- Inventaire ---")
 	for slot in slots:

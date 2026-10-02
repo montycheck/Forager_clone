@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://t0bkgrwfjrw8" path="res://scenes/player/player.tscn" id="2_sl2e5"]
 [ext_resource type="Texture2D" uid="uid://c104bn0oss4x7" path="res://assets/tilesets/tilemap.png" id="2_srmg5"]
 [ext_resource type="PackedScene" uid="uid://drvyssaiyf7iq" path="res://scenes/ui/inventory_ui.tscn" id="5_v5dby"]
-[ext_resource type="PackedScene" uid="uid://cqx6sbgsd38l1" path="res://scenes/ui/craft_ui.tscn" id="6_t5ptc"]
 [ext_resource type="PackedScene" uid="uid://brnbnxr24hky2" path="res://scenes/ui/xp_bar_ui.tscn" id="7_bq33v"]
 [ext_resource type="PackedScene" uid="uid://4p77gafwnlgk" path="res://scenes/ui/skill_tree_ui.tscn" id="8_j2gmx"]
 [ext_resource type="PackedScene" uid="uid://bplr80u5f6d35" path="res://scenes/ui/pause_menu.tscn" id="9_1yooq"]
@@ -62,8 +61,6 @@ biome_map = NodePath("../../BiomeMap")
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1550461492]
 
 [node name="InventoryUI" parent="UILayer" unique_id=974680617 instance=ExtResource("5_v5dby")]
-
-[node name="CraftUI" parent="UILayer" unique_id=1409466685 groups=["craft_ui"] instance=ExtResource("6_t5ptc")]
 
 [node name="XPBarUI" parent="UILayer" unique_id=355905607 instance=ExtResource("7_bq33v")]
 mouse_filter = 2

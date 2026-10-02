@@ -11,4 +11,5 @@ output_item = ExtResource("3_v07s4")
 input_items = Array[ExtResource("1_iaiq5")]([ExtResource("2_y2hid")])
 input_amounts = Array[int]([2])
 required_skill_id = "recipe_stick"
+required_building_id = "workbench"
 metadata/_custom_type_script = "uid://c7uv5ll7k0lci"
