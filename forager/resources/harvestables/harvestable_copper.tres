@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://bp0lk7tnjkuy4"]
+
+[ext_resource type="Resource" uid="uid://fi84j2ey0k42" path="res://resources/items/item_copper_ore.tres" id="1_6crpn"]
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_lc827"]
+[ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_jmhqh"]
+[ext_resource type="Texture2D" uid="uid://d35uvijeg80xc" path="res://assets/sprites/copper_node_placeholder.png" id="3_jmhqh"]
+
+[resource]
+script = ExtResource("1_lc827")
+id = "copper"
+item = ExtResource("1_6crpn")
+sprite_texture = ExtResource("3_jmhqh")
+max_hits = 5
+scene = ExtResource("2_jmhqh")
+metadata/_custom_type_script = "uid://bpuy8x50oiei4"

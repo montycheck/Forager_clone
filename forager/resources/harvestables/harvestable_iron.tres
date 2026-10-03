@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://bo2x8kbhyoc5a"]
+
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_2tk3d"]
+[ext_resource type="Resource" uid="uid://dgqdaxjwimpdc" path="res://resources/items/item_iron_ore.tres" id="1_eabmc"]
+[ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_6fbmg"]
+[ext_resource type="Texture2D" uid="uid://dgc5032r7u6ti" path="res://assets/sprites/iron_node_placeholder.png" id="4_2cqmm"]
+
+[resource]
+script = ExtResource("1_2tk3d")
+id = "iron"
+item = ExtResource("1_eabmc")
+sprite_texture = ExtResource("4_2cqmm")
+max_hits = 5
+scene = ExtResource("2_6fbmg")
+metadata/_custom_type_script = "uid://bpuy8x50oiei4"

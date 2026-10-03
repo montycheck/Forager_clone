@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cejxs1phl3i5a"]
+
+[ext_resource type="Script" uid="uid://crv7k15txjnhg" path="res://scripts/world/crafting_station.gd" id="1_ukjnv"]
+[ext_resource type="Texture2D" uid="uid://b6ml7k7sw38pl" path="res://assets/sprites/furnace_placeholder.png" id="2_ukjnv"]
+[ext_resource type="FontFile" uid="uid://d0c3761ora5wl" path="res://assets/fonts/Fredoka-SemiBold.ttf" id="3_cuvmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tarv"]
+size = Vector2(62, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk6b2"]
+size = Vector2(80, 60)
+
+[node name="FurnaceBuilding" type="Node2D" unique_id=1194901117]
+script = ExtResource("1_ukjnv")
+building_id = "furnace"
+station_display_name = "Furnace"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=265440006]
+texture = ExtResource("2_ukjnv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1164900332]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1849487970]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_0tarv")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1242083666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1443087463]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_xk6b2")
+
+[node name="OutputIcon" type="TextureRect" parent="." unique_id=1385830178]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 3
+
+[node name="OutputLabel" type="Label" parent="." unique_id=1958356401]
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.9607843, 0.6509804, 0.13725491, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
+theme_override_fonts/font = ExtResource("3_cuvmp")
+theme_override_font_sizes/font_size = 14

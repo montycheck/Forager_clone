@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://dpvtvsi64vbsx"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_1amp4"]
+[ext_resource type="Texture2D" uid="uid://b6ml7k7sw38pl" path="res://assets/sprites/furnace_placeholder.png" id="2_1amp4"]
+[ext_resource type="PackedScene" uid="uid://cejxs1phl3i5a" path="res://scenes/buildings/furnace_building.tscn" id="3_1amp4"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="4_h7t11"]
+
+[resource]
+script = ExtResource("4_h7t11")
+id = "furnace"
+display_name = "Furnace"
+icon = ExtResource("2_1amp4")
+scene = ExtResource("3_1amp4")
+grid_size = Vector2i(2, 2)
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

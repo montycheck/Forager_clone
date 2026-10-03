@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bs581nbn7ks1k"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_0kjv8"]
+[ext_resource type="Texture2D" uid="uid://1vjhiy7pqdi7" path="res://assets/sprites/icon_copper_ingot.png" id="1_55om0"]
+
+[resource]
+script = ExtResource("1_0kjv8")
+id = "copper_ingot"
+display_name = "Copper Ingot"
+icon = ExtResource("1_55om0")
+metadata/_custom_type_script = "uid://i8ghxbihqbhs"

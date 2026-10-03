@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var output_icon: TextureRect = get_node_or_null("OutputIcon")
 @onready var output_label: Label = get_node_or_null("OutputLabel")
+@onready var sprite: Sprite2D = $Sprite
 
 var is_ghost: bool = false
 var active_recipe: Recipe = null   # recette du lot en cours (null = libre)
@@ -19,7 +20,7 @@ const BAR_OFFSET := Vector2(-BAR_WIDTH / 2.0, 38.0)
 
 const IndicatorFont := preload("res://assets/fonts/Fredoka-SemiBold.ttf")
 const INDICATOR_ICON_SIZE := Vector2(16, 16)
-const INDICATOR_OFFSET := Vector2(-20, 20)   # sous le bâtiment, ajuste si besoin
+const INDICATOR_OFFSET := Vector2(-20, 40)   # sous le bâtiment, ajuste si besoin
 
 func _ready() -> void:
 	add_to_group("persist")

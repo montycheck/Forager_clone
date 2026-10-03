@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_ui4nw"]
 [ext_resource type="Resource" uid="uid://cx3u7odug33ov" path="res://resources/harvestables/harvestable_stone.tres" id="2_gfi7g"]
 [ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="2_wbpxb"]
+[ext_resource type="Resource" uid="uid://eb8mdu4ifn88" path="res://resources/harvestables/harvestable_coal.tres" id="3_swvaa"]
+[ext_resource type="Resource" uid="uid://rrbi1fnspy77" path="res://resources/harvestables/harvestable_gold.tres" id="4_21ew8"]
+[ext_resource type="Resource" uid="uid://bo2x8kbhyoc5a" path="res://resources/harvestables/harvestable_iron.tres" id="5_s0jwq"]
+[ext_resource type="Resource" uid="uid://bp0lk7tnjkuy4" path="res://resources/harvestables/harvestable_copper.tres" id="6_vndef"]
 
 [resource]
 script = ExtResource("2_wbpxb")
@@ -10,5 +14,5 @@ biome_name = "Desert"
 debug_color = Color(0.9764706, 0.77254903, 0, 1)
 noise_max = -0.2
 ground_atlas_coords = Vector2i(2, 0)
-allowed_harvestables = Array[ExtResource("1_ui4nw")]([ExtResource("2_gfi7g")])
+allowed_harvestables = Array[ExtResource("1_ui4nw")]([ExtResource("2_gfi7g"), ExtResource("3_swvaa"), ExtResource("4_21ew8"), ExtResource("5_s0jwq"), ExtResource("6_vndef")])
 metadata/_custom_type_script = "uid://b6ijli6w5cnxu"

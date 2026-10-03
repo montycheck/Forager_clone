@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://d1wsorsx56trh"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_3jmy1"]
+[ext_resource type="Texture2D" uid="uid://fd0wsa8w1v6c" path="res://assets/sprites/icon_gold_ingot.png" id="1_887jf"]
+
+[resource]
+script = ExtResource("1_3jmy1")
+id = "gold_ingot"
+display_name = "Gold Ingot"
+icon = ExtResource("1_887jf")
+metadata/_custom_type_script = "uid://i8ghxbihqbhs"

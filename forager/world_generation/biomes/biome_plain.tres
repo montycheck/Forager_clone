@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://cx3u7odug33ov" path="res://resources/harvestables/harvestable_stone.tres" id="3_gn3w3"]
 [ext_resource type="Resource" uid="uid://dqtervracei46" path="res://resources/harvestables/harvestable_bush.tres" id="4_dlssb"]
 [ext_resource type="Resource" uid="uid://bu5deua7sp68p" path="res://resources/harvestables/harvestable_clay.tres" id="5_ak5as"]
-[ext_resource type="Resource" uid="uid://eb8mdu4ifn88" path="res://resources/harvestables/harvestable_coal.tres" id="6_1b874"]
 [ext_resource type="Resource" uid="uid://cvo5ye7ex2mm7" path="res://resources/harvestables/harvestable_resin.tres" id="7_h3qyj"]
 
 [resource]
@@ -15,5 +14,5 @@ biome_name = "Plain"
 debug_color = Color(0, 0.90588236, 0.16078432, 1)
 noise_min = -0.2
 noise_max = 0.3
-allowed_harvestables = Array[ExtResource("1_ebg4u")]([ExtResource("2_urude"), ExtResource("3_gn3w3"), ExtResource("4_dlssb"), ExtResource("5_ak5as"), ExtResource("6_1b874"), ExtResource("7_h3qyj")])
+allowed_harvestables = Array[ExtResource("1_ebg4u")]([ExtResource("2_urude"), ExtResource("3_gn3w3"), ExtResource("4_dlssb"), ExtResource("5_ak5as"), ExtResource("7_h3qyj")])
 metadata/_custom_type_script = "uid://b6ijli6w5cnxu"

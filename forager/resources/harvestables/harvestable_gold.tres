@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://rrbi1fnspy77"]
+
+[ext_resource type="Resource" uid="uid://doy261dktfbdr" path="res://resources/items/item_gold_ore.tres" id="1_pmetx"]
+[ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_tjkqr"]
+[ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_ootvn"]
+[ext_resource type="Texture2D" uid="uid://dsh2rf0gcq46e" path="res://assets/sprites/gold_node_placeholder.png" id="4_t3vlk"]
+
+[resource]
+script = ExtResource("1_tjkqr")
+id = "gold"
+item = ExtResource("1_pmetx")
+sprite_texture = ExtResource("4_t3vlk")
+max_hits = 5
+scene = ExtResource("2_ootvn")
+metadata/_custom_type_script = "uid://bpuy8x50oiei4"
