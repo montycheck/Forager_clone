@@ -30,6 +30,9 @@ func get_value(stat: int, base: float = 1.0):
 func get_hit_power() -> int:
 	return maxi(1, int(round(get_value(StatModifier.Stat.HIT_POWER, 1.0))))
 
+func get_luck() -> float:
+	return maxf(get_value(StatModifier.Stat.LUCK, 1.0), 0.0)
+
 func save_data() -> Dictionary:
 	var result := {}
 	for line_id in upgrades:

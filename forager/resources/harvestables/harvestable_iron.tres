@@ -1,9 +1,44 @@
 [gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://bo2x8kbhyoc5a"]
 
+[ext_resource type="Script" uid="uid://bu7irpjc33okm" path="res://scripts/data/drop_entry.gd" id="1_2cqmm"]
 [ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_2tk3d"]
 [ext_resource type="Resource" uid="uid://dgqdaxjwimpdc" path="res://resources/items/item_iron_ore.tres" id="1_eabmc"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_3lfgx"]
 [ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_6fbmg"]
 [ext_resource type="Texture2D" uid="uid://dgc5032r7u6ti" path="res://assets/sprites/iron_node_placeholder.png" id="4_2cqmm"]
+[ext_resource type="Resource" uid="uid://dllvqgiryux2n" path="res://resources/items/item_blue_gem.tres" id="4_w8vwv"]
+[ext_resource type="Resource" uid="uid://by2aouso3q4jo" path="res://resources/items/item_orange_gem.tres" id="5_4l32o"]
+[ext_resource type="Resource" uid="uid://p1b68gog10v8" path="res://resources/items/item_green_gem.tres" id="6_jralj"]
+
+[sub_resource type="Resource" id="Resource_is3j7"]
+script = ExtResource("1_2cqmm")
+item = ExtResource("2_3lfgx")
+max_amount = 2
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
+
+[sub_resource type="Resource" id="Resource_w8vwv"]
+script = ExtResource("1_2cqmm")
+item = ExtResource("1_eabmc")
+max_amount = 3
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
+
+[sub_resource type="Resource" id="Resource_su7is"]
+script = ExtResource("1_2cqmm")
+item = ExtResource("4_w8vwv")
+chance = 0.05
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
+
+[sub_resource type="Resource" id="Resource_drknv"]
+script = ExtResource("1_2cqmm")
+item = ExtResource("5_4l32o")
+chance = 0.05
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
+
+[sub_resource type="Resource" id="Resource_yvj6l"]
+script = ExtResource("1_2cqmm")
+item = ExtResource("6_jralj")
+chance = 0.05
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
 
 [resource]
 script = ExtResource("1_2tk3d")
@@ -12,4 +47,5 @@ item = ExtResource("1_eabmc")
 sprite_texture = ExtResource("4_2cqmm")
 max_hits = 5
 scene = ExtResource("2_6fbmg")
+drops = Array[ExtResource("1_2cqmm")]([SubResource("Resource_is3j7"), SubResource("Resource_w8vwv"), SubResource("Resource_su7is"), SubResource("Resource_drknv"), SubResource("Resource_yvj6l")])
 metadata/_custom_type_script = "uid://bpuy8x50oiei4"

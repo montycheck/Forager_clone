@@ -67,6 +67,7 @@ func _spawn_at(data: HarvestableData, biome: BiomeData, pos: Vector2) -> void:
 	node.amount_per_hit = data.amount_per_hit
 	node.sprite_texture = data.sprite_texture
 	node.position = pos
+	node.drops = data.drops
 
 	get_tree().get_first_node_in_group("y_sort_root").add_child.call_deferred(node)
 	spawned_positions.append(pos)

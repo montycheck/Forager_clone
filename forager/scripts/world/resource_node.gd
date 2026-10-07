@@ -7,7 +7,9 @@ signal destroyed(node: Node2D)
 @export var max_hits: int = 3          # = vie max du node
 @export var amount_per_hit: int = 1    # total droppé = amount_per_hit * max_hits
 @export var sprite_texture: Texture2D
+@export var drops: Array[DropEntry] = []
 
+const MAX_PICKUPS_PER_DROP := 5
 const PickupScene := preload("res://scenes/world/item_pickup.tscn")
 
 const BAR_WIDTH := 28.0
@@ -55,21 +57,41 @@ func destroy() -> void:
 	destroyed.emit(self)
 	queue_free()
 
+func _roll_drops() -> Array:
+	var result: Array = []
+	if drops.is_empty():
+		# Ancien comportement
+		if item != null:
+			result.append({"item": item, "amount": amount_per_hit * max_hits})
+		return result
+
+	var luck := PlayerStats.get_luck()
+	for entry in drops:
+		var n = entry.roll(luck)
+		if n > 0:
+			result.append({"item": entry.item, "amount": n})
+	return result
+
 func _spawn_drops() -> void:
-	if item == null:
-		return
-
 	var root := get_tree().get_first_node_in_group("y_sort_root")
-	var count := maxi(1, max_hits)
 
+	# On découpe chaque drop en quelques tas pour le côté visuel
+	var piles: Array = []
+	for drop in _roll_drops():
+		var parts: int = mini(drop["amount"], MAX_PICKUPS_PER_DROP)
+		var base: int = drop["amount"] / parts
+		var extra: int = drop["amount"] % parts
+		for p in parts:
+			piles.append({"item": drop["item"], "amount": base + (1 if p < extra else 0)})
+
+	var count := piles.size()
 	for i in count:
 		var pickup := PickupScene.instantiate()
-		pickup.item = item
-		pickup.amount = amount_per_hit
+		pickup.item = piles[i]["item"]
+		pickup.amount = piles[i]["amount"]
 		root.add_child(pickup)
 		pickup.global_position = global_position
 
-		# Éjection en éventail avec un peu d'aléatoire
 		var angle := (TAU / count) * i + randf_range(-0.4, 0.4)
 		var target := global_position + Vector2.from_angle(angle) * randf_range(DROP_RADIUS * 0.6, DROP_RADIUS)
 		var tween := pickup.create_tween()

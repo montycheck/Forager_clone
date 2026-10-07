@@ -1,7 +1,7 @@
 extends Resource
 class_name StatModifier
 
-enum Stat { HARVEST_SPEED, MOVE_SPEED, HIT_POWER}
+enum Stat { HARVEST_SPEED, MOVE_SPEED, HIT_POWER, LUCK }
 enum Mode { ADD, MULTIPLY}
 
 @export var stat: Stat = Stat.HARVEST_SPEED
@@ -12,8 +12,8 @@ const STAT_NAMES := {
 	Stat.HARVEST_SPEED: "Harvesting speed",
 	Stat.MOVE_SPEED: "Movement speed",
 	Stat.HIT_POWER: "Strengh",
+	Stat.LUCK: "Luck",
 }
-
 func describe() -> String:
 	var label: String = STAT_NAMES[stat]
 	if mode == Mode.MULTIPLY:

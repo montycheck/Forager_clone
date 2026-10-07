@@ -9,3 +9,4 @@ class_name HarvestableData
 @export var spawn_count: int = 6
 @export var respawn_time: float = 20.0
 @export var scene: PackedScene
+@export var drops: Array[DropEntry] = []

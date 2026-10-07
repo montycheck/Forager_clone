@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://gdmr5voec0r4" path="res://scripts/data/stat_modifier.gd" id="1_c72xd"]
 [ext_resource type="Script" uid="uid://cq3wubuvv1w1c" path="res://scripts/data/upgrade_item.gd" id="2_5m883"]
-[ext_resource type="Texture2D" uid="uid://cca7gvvuux882" path="res://assets/sprites/icon_upgrade_boot_t1.png" id="2_jktph"]
+[ext_resource type="Texture2D" uid="uid://ib4a2uklqw7a" path="res://assets/sprites/icon_upgrade_boot_t2.png" id="2_jktph"]
 
 [sub_resource type="Resource" id="Resource_c72xd"]
 script = ExtResource("1_c72xd")

@@ -11,5 +11,5 @@ id = "requester_plain"
 display_name = "Requester - Plain"
 icon = ExtResource("2_fvjjo")
 scene = ExtResource("3_8to0d")
-grid_size = Vector2i(2, 1)
+grid_size = Vector2i(2, 2)
 metadata/_custom_type_script = "uid://utijj7eg8p5c"

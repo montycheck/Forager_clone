@@ -1,9 +1,38 @@
 [gd_resource type="Resource" script_class="HarvestableData" format=3 uid="uid://cx3u7odug33ov"]
 
+[ext_resource type="Script" uid="uid://bu7irpjc33okm" path="res://scripts/data/drop_entry.gd" id="1_7cwkv"]
 [ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_l5ojl"]
 [ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="1_x01rd"]
 [ext_resource type="PackedScene" uid="uid://d1w41ci52lf74" path="res://scenes/resources_nodes/resource_node.tscn" id="2_haux5"]
 [ext_resource type="Texture2D" uid="uid://bm73b6dqeoady" path="res://assets/sprites/rock_placeholder.png" id="3_haux5"]
+[ext_resource type="Resource" uid="uid://dllvqgiryux2n" path="res://resources/items/item_blue_gem.tres" id="3_ktju4"]
+[ext_resource type="Resource" uid="uid://p1b68gog10v8" path="res://resources/items/item_green_gem.tres" id="4_0rey2"]
+[ext_resource type="Resource" uid="uid://by2aouso3q4jo" path="res://resources/items/item_orange_gem.tres" id="5_us53i"]
+
+[sub_resource type="Resource" id="Resource_xn44j"]
+script = ExtResource("1_7cwkv")
+item = ExtResource("1_x01rd")
+min_amount = 3
+max_amount = 5
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
+
+[sub_resource type="Resource" id="Resource_tcxl1"]
+script = ExtResource("1_7cwkv")
+item = ExtResource("3_ktju4")
+chance = 0.05
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
+
+[sub_resource type="Resource" id="Resource_y7aom"]
+script = ExtResource("1_7cwkv")
+item = ExtResource("4_0rey2")
+chance = 0.05
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
+
+[sub_resource type="Resource" id="Resource_21hiq"]
+script = ExtResource("1_7cwkv")
+item = ExtResource("5_us53i")
+chance = 0.05
+metadata/_custom_type_script = "uid://bu7irpjc33okm"
 
 [resource]
 script = ExtResource("1_l5ojl")
@@ -13,4 +42,5 @@ sprite_texture = ExtResource("3_haux5")
 spawn_count = 80
 respawn_time = 30.0
 scene = ExtResource("2_haux5")
+drops = Array[ExtResource("1_7cwkv")]([SubResource("Resource_xn44j"), SubResource("Resource_tcxl1"), SubResource("Resource_y7aom"), SubResource("Resource_21hiq")])
 metadata/_custom_type_script = "uid://bpuy8x50oiei4"

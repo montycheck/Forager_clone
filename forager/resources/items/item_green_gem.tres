@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://p1b68gog10v8"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_536c5"]
+[ext_resource type="Texture2D" uid="uid://cb0ib7la4dba3" path="res://assets/sprites/icon_green_gem.png" id="1_mjbda"]
+
+[resource]
+script = ExtResource("1_536c5")
+id = "green_gem"
+display_name = "Green Gem"
+icon = ExtResource("1_mjbda")
+metadata/_custom_type_script = "uid://i8ghxbihqbhs"
