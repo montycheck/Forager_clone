@@ -56,6 +56,14 @@ func remove_items(items: Array[Item], amounts: Array[int]) -> void:
 	for i in items.size():
 		remove_item(items[i], amounts[i])
 
+func use_slot(index: int) -> void:
+	if index < 0 or index >= slots.size():
+		return
+	var item = slots[index]["item"]
+	if item is ConsumableItem and item.can_use():
+		item.use()
+		remove_item(item, 1)
+
 func print_inventory() -> void:
 	print("--- Inventaire ---")
 	for slot in slots:

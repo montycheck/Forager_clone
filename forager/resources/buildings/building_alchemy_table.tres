@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://bsjfw7846jx4q"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_1jehy"]
+[ext_resource type="Resource" uid="uid://bm32wkomyreh5" path="res://resources/items/item_wood.tres" id="2_ob773"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="2_umb3k"]
+[ext_resource type="Resource" uid="uid://8s4jdwectvoo" path="res://resources/items/item_rope.tres" id="3_4nabu"]
+[ext_resource type="Resource" uid="uid://dllvqgiryux2n" path="res://resources/items/item_blue_gem.tres" id="4_sbhkg"]
+[ext_resource type="Resource" uid="uid://p1b68gog10v8" path="res://resources/items/item_green_gem.tres" id="5_04dln"]
+[ext_resource type="Resource" uid="uid://by2aouso3q4jo" path="res://resources/items/item_orange_gem.tres" id="6_slgg1"]
+[ext_resource type="Texture2D" uid="uid://cj1bpejea64th" path="res://assets/sprites/alchemy_table_placeholder.png" id="7_7kh8l"]
+[ext_resource type="PackedScene" uid="uid://bjwheq410qu76" path="res://scenes/buildings/alchemy_table_building.tscn" id="8_4nabu"]
+
+[resource]
+script = ExtResource("2_umb3k")
+id = "alchemy_table"
+display_name = "Alchemy Table"
+icon = ExtResource("7_7kh8l")
+scene = ExtResource("8_4nabu")
+cost_items = Array[ExtResource("1_1jehy")]([ExtResource("2_ob773"), ExtResource("3_4nabu"), ExtResource("4_sbhkg"), ExtResource("5_04dln"), ExtResource("6_slgg1")])
+cost_amounts = Array[int]([3, 1, 1, 1, 1])
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

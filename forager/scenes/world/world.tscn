@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dl5wk3klj62ls" path="res://scenes/ui/requester_ui.tscn" id="12_wbwoo"]
 [ext_resource type="PackedScene" uid="uid://bqlwiafsgud2h" path="res://scenes/ui/build_menu_ui.tscn" id="13_srmg5"]
 [ext_resource type="Script" uid="uid://dp7ev1yyt48e0" path="res://scripts/ui/upgrades_ui.gd" id="13_tytul"]
+[ext_resource type="Script" uid="uid://dq2q7lcd280r" path="res://scripts/ui/vitals_ui.gd" id="14_t634p"]
 [ext_resource type="Script" uid="uid://ej0qkjoe4ljb" path="res://world_generation/biome_map.gd" id="14_wbwoo"]
 [ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="15_tytul"]
 [ext_resource type="Resource" uid="uid://dpcc1mh8kqbn6" path="res://world_generation/biomes/biome_plain.tres" id="16_t634p"]
@@ -54,7 +55,7 @@ speed = 400.0
 harvest_delay = 0.55
 
 [node name="Camera2D" type="Camera2D" parent="YSortRoot/Player" unique_id=1839218965]
-zoom = Vector2(0.15, 0.15)
+zoom = Vector2(1.2, 1.2)
 
 [node name="ResourceSpawner" type="Node2D" parent="YSortRoot" unique_id=1425479356 node_paths=PackedStringArray("biome_map")]
 script = ExtResource("9_dlabj")
@@ -94,6 +95,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("13_tytul")
+
+[node name="VitalsUI" type="Control" parent="UILayer" unique_id=1455512851]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_t634p")
 
 [node name="BiomeMap" type="Node" parent="." unique_id=1233440378]
 script = ExtResource("14_wbwoo")

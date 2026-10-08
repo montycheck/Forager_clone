@@ -8,16 +8,27 @@ const MAX_ATTEMPTS_PER_RESOURCE := 40
 
 var spawned_positions: Array[Vector2] = []
 
-func generate_resources() -> void:
+func generate_resources(on_progress: Callable = Callable()) -> void:
 	spawned_positions.clear()
 
 	for child in get_children():
 		child.queue_free()
 
+	var total := 0
+	for biome in biome_map.biomes:
+		for data in biome.allowed_harvestables:
+			total += data.spawn_count
+
+	var done := 0
 	for biome in biome_map.biomes:
 		for data in biome.allowed_harvestables:
 			for i in data.spawn_count:
 				_try_spawn(data, biome)
+				done += 1
+				if done % 20 == 0:
+					if on_progress.is_valid():
+						on_progress.call(float(done) / max(total, 1))
+					await get_tree().process_frame
 
 func _try_spawn(data: HarvestableData, biome: BiomeData) -> void:
 	var pos = _find_valid_position(biome)

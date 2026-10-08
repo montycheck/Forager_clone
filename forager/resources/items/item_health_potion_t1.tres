@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConsumableItem" format=3 uid="uid://dtmxbnvrtqe7s"]
+
+[ext_resource type="Texture2D" uid="uid://6oyb4n40i0so" path="res://assets/sprites/icon_health_potion_t1.png" id="1_7lsx3"]
+[ext_resource type="Script" uid="uid://btb3u7kdj5lrs" path="res://scripts/data/consumable_item.gd" id="1_gfqp5"]
+
+[resource]
+script = ExtResource("1_gfqp5")
+health_restore = 30.0
+id = "health_potion_t1"
+display_name = "Small Health Potion"
+icon = ExtResource("1_7lsx3")
+metadata/_custom_type_script = "uid://btb3u7kdj5lrs"

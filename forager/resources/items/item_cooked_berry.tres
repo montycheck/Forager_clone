@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ConsumableItem" format=3 uid="uid://cerfb2qxrnxyh"]
+
+[ext_resource type="Texture2D" uid="uid://cav6rqyc0raok" path="res://assets/sprites/icon_cooked_berry.png" id="1_uftsm"]
+[ext_resource type="Script" uid="uid://btb3u7kdj5lrs" path="res://scripts/data/consumable_item.gd" id="1_vaj54"]
+
+[resource]
+script = ExtResource("1_vaj54")
+hunger_restore = 25.0
+health_restore = 10.0
+id = "cooked_berry"
+display_name = "Cooked Berry"
+icon = ExtResource("1_uftsm")
+metadata/_custom_type_script = "uid://btb3u7kdj5lrs"

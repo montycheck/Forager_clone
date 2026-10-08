@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://bsbhvof5l0v04"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_hfk8w"]
+[ext_resource type="Resource" uid="uid://c3r4d42vh8ehb" path="res://resources/items/item_berry.tres" id="2_46fal"]
+[ext_resource type="Script" uid="uid://c7uv5ll7k0lci" path="res://scripts/data/recipe.gd" id="2_lydlt"]
+[ext_resource type="Resource" uid="uid://btoy2w7s64rul" path="res://resources/items/item_coal.tres" id="3_vn2y3"]
+[ext_resource type="Resource" uid="uid://cerfb2qxrnxyh" path="res://resources/items/item_cooked_berry.tres" id="4_qdyku"]
+
+[resource]
+script = ExtResource("2_lydlt")
+output_item = ExtResource("4_qdyku")
+output_amount = 2
+input_items = Array[ExtResource("1_hfk8w")]([ExtResource("2_46fal"), ExtResource("3_vn2y3")])
+input_amounts = Array[int]([2, 1])
+required_building_id = "furnace"
+production_time = 2.0
+metadata/_custom_type_script = "uid://c7uv5ll7k0lci"

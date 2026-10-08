@@ -13,6 +13,7 @@ func save_game():
 	data["inventory"] = Inventory.save_data()
 	data["progress"] = PlayerProgress.save_data()
 	data["upgrades"] = PlayerStats.save_data()
+	data["vitals"] = PlayerVitals.save_data()
 	data["world_seed"] = current_seed
 
 	var player := get_tree().get_first_node_in_group("player")
@@ -62,7 +63,8 @@ func load_game():
 	PlayerProgress.load_data(data["progress"])
 	if data.has("upgrades"):
 		PlayerStats.load_data(data["upgrades"])
-
+	if data.has("vitals"):
+		PlayerVitals.load_data(data["vitals"])
 	var player := get_tree().get_first_node_in_group("player")
 	player.load_data(data["player"])
 
@@ -88,4 +90,5 @@ func request_new_game():
 	pending_load = false
 	current_seed = randi()
 	PlayerStats.upgrades.clear()
+	PlayerVitals.reset()
 	get_tree().change_scene_to_file("res://scenes/world/world.tscn")

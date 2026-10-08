@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://ocgd8nca5j7p"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_h7lrr"]
+[ext_resource type="Script" uid="uid://c7uv5ll7k0lci" path="res://scripts/data/recipe.gd" id="2_ccpi7"]
+[ext_resource type="Resource" uid="uid://cerfb2qxrnxyh" path="res://resources/items/item_cooked_berry.tres" id="2_nhxwf"]
+[ext_resource type="Resource" uid="uid://np8u1tor371g" path="res://resources/items/item_leaves.tres" id="3_rrdug"]
+[ext_resource type="Resource" uid="uid://dtmxbnvrtqe7s" path="res://resources/items/item_health_potion_t1.tres" id="4_71dk7"]
+
+[resource]
+script = ExtResource("2_ccpi7")
+output_item = ExtResource("4_71dk7")
+input_items = Array[ExtResource("1_h7lrr")]([ExtResource("2_nhxwf"), ExtResource("3_rrdug"), null])
+input_amounts = Array[int]([1, 2])
+required_building_id = "alchemy_table"
+metadata/_custom_type_script = "uid://c7uv5ll7k0lci"

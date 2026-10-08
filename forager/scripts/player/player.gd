@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 		if target != null and target.has_method("hit"):
 			if harvest_timer >= _get_effective_harvest_delay():
 				target.hit(PlayerStats.get_hit_power())
+				PlayerVitals.consume_hunger()
 				harvest_timer = 0.0
 
 func _get_effective_harvest_delay() -> float:
