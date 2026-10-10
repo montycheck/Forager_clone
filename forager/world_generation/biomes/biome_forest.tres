@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bpuy8x50oiei4" path="res://scripts/data/harvestable_data.gd" id="1_avio5"]
 [ext_resource type="Resource" uid="uid://bmu3fe4vko0dh" path="res://resources/harvestables/harvestable_wood.tres" id="2_bkte7"]
 [ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="2_r4gtd"]
+[ext_resource type="Script" uid="uid://cwlx60d7e2j8k" path="res://scripts/data/mob_data.gd" id="3_2m8er"]
+[ext_resource type="Resource" uid="uid://dsyfub3inxhea" path="res://resources/mobs/slime.tres" id="4_2o65i"]
 
 [resource]
 script = ExtResource("2_r4gtd")
@@ -11,4 +13,5 @@ debug_color = Color(0.07450981, 0.34901962, 0, 1)
 noise_min = 0.3
 ground_atlas_coords = Vector2i(3, 0)
 allowed_harvestables = Array[ExtResource("1_avio5")]([ExtResource("2_bkte7")])
+allowed_mobs = Array[ExtResource("3_2m8er")]([ExtResource("4_2o65i")])
 metadata/_custom_type_script = "uid://b6ijli6w5cnxu"

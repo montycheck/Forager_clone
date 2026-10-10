@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://n56xppx23fim"]
+
+[ext_resource type="Script" uid="uid://cowwsx43ttv2m" path="res://scripts/mobs/mob.gd" id="1_s2wnx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2wnx"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6b6g"]
+radius = 20.0
+
+[node name="Mob" type="CharacterBody2D" unique_id=1453091809]
+script = ExtResource("1_s2wnx")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=357474448]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=412395454]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_s2wnx")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1224489653]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=156468248]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_s6b6g")

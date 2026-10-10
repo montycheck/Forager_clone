@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c104bn0oss4x7" path="res://assets/tilesets/tilemap.png" id="2_srmg5"]
 [ext_resource type="Script" uid="uid://bjikyqfvmcvsf" path="res://scripts/world/structure_spawner.gd" id="5_tytul"]
 [ext_resource type="PackedScene" uid="uid://drvyssaiyf7iq" path="res://scenes/ui/inventory_ui.tscn" id="5_v5dby"]
+[ext_resource type="Script" uid="uid://bkif62jpkqhgi" path="res://scripts/world/mob_spawner.gd" id="6_6hctx"]
 [ext_resource type="PackedScene" uid="uid://brnbnxr24hky2" path="res://scenes/ui/xp_bar_ui.tscn" id="7_bq33v"]
 [ext_resource type="PackedScene" uid="uid://4p77gafwnlgk" path="res://scenes/ui/skill_tree_ui.tscn" id="8_j2gmx"]
 [ext_resource type="PackedScene" uid="uid://bplr80u5f6d35" path="res://scenes/ui/pause_menu.tscn" id="9_1yooq"]
@@ -51,8 +52,6 @@ y_sort_enabled = true
 
 [node name="Player" parent="YSortRoot" unique_id=694377344 instance=ExtResource("2_sl2e5")]
 position = Vector2(64, 64)
-speed = 400.0
-harvest_delay = 0.55
 
 [node name="Camera2D" type="Camera2D" parent="YSortRoot/Player" unique_id=1839218965]
 zoom = Vector2(1.2, 1.2)
@@ -63,6 +62,10 @@ biome_map = NodePath("../../BiomeMap")
 
 [node name="StructureSpawner" type="Node2D" parent="YSortRoot" unique_id=110289503 node_paths=PackedStringArray("biome_map")]
 script = ExtResource("5_tytul")
+biome_map = NodePath("../../BiomeMap")
+
+[node name="MobSpawner" type="Node2D" parent="YSortRoot" unique_id=1535067680 node_paths=PackedStringArray("biome_map")]
+script = ExtResource("6_6hctx")
 biome_map = NodePath("../../BiomeMap")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1550461492]

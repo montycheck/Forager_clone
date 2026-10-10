@@ -2,6 +2,8 @@ extends Node
 
 signal upgrades_changed
 
+const Config := preload("res://resources/config/player_config.tres")
+
 var upgrades: Dictionary = {}
 
 func get_tier(line_id: String):
@@ -28,10 +30,10 @@ func get_value(stat: int, base: float = 1.0):
 	return (base + add) * mult
 
 func get_hit_power() -> int:
-	return maxi(1, int(round(get_value(StatModifier.Stat.HIT_POWER, 1.0))))
+	return maxi(1, int(round(get_value(StatModifier.Stat.HIT_POWER, Config.base_hit_power))))
 
 func get_luck() -> float:
-	return maxf(get_value(StatModifier.Stat.LUCK, 1.0), 0.0)
+	return maxf(get_value(StatModifier.Stat.LUCK, Config.base_luck), 0.0)
 
 func save_data() -> Dictionary:
 	var result := {}

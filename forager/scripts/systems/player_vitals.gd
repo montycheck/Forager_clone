@@ -3,14 +3,24 @@ extends Node
 signal health_changed
 signal hunger_changed
 signal died
+signal hurt
 
-@export var max_health: float = 100.0
-@export var max_hunger: float = 100.0
-var health: float = 100.0
-var hunger: float = 100.0
+const Config := preload("res://resources/config/player_config.tres")
 
-@export var hunger_per_hit: float = 2.0
-@export var starvation_damage_per_second: float = 2.0
+var max_health: float
+var max_hunger: float
+var health: float
+var hunger: float
+var hunger_per_hit: float
+var starvation_damage_per_second: float
+
+func _ready() -> void:
+	max_health = Config.max_health
+	max_hunger = Config.max_hunger
+	hunger_per_hit = Config.hunger_per_hit
+	starvation_damage_per_second = Config.starvation_damage_per_second
+	health = max_health
+	hunger = max_hunger
 
 func _process(delta: float) -> void:
 	if hunger <= 0.0 and health > 0.0:
@@ -25,11 +35,13 @@ func consume_hunger(amount: float = -1.0):
 func restore_hunger(amount: float):
 	hunger = clampf(hunger + amount, 0.0, max_hunger)
 	
-func damage(amount: float):
+func damage(amount: float, feedback: bool = false):
 	if health <= 0.0:
 		return
 	health = clampf(health - amount, 0.0, max_health)
 	health_changed.emit()
+	if feedback:
+		hurt.emit()
 	if health <= 0.0:
 		died.emit()
 		_on_died()

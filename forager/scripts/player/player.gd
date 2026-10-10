@@ -1,17 +1,24 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0
-@export var harvest_delay: float = 0.4
+@onready var sprite: Sprite2D = $Sprite
+@onready var camera: Camera2D = get_node_or_null("Camera2D")
+
+const Config := preload("res://resources/config/player_config.tres")
 
 var targets_in_range: Array = []
 var harvest_timer: float = 0.0
+var _blink_tween: Tween
+var _shake_tween: Tween
+
+func _ready() -> void:
+	PlayerVitals.hurt.connect(_on_hurt)
 
 func _physics_process(delta: float) -> void:
 	var input_direction := Vector2.ZERO
 	input_direction.x = Input.get_axis("move_left", "move_right")
 	input_direction.y = Input.get_axis("move_up", "move_down")
 	input_direction = input_direction.normalized()
-	velocity = input_direction * speed * PlayerStats.get_value(StatModifier.Stat.MOVE_SPEED)
+	velocity = input_direction * Config.move_speed * PlayerStats.get_value(StatModifier.Stat.MOVE_SPEED)
 	move_and_slide()
 
 	harvest_timer += delta
@@ -26,7 +33,7 @@ func _physics_process(delta: float) -> void:
 
 func _get_effective_harvest_delay() -> float:
 	var multiplier: float = PlayerProgress.harvest_speed_multiplier * PlayerStats.get_value(StatModifier.Stat.HARVEST_SPEED)
-	return harvest_delay / max(multiplier, 0.01)
+	return Config.harvest_delay / max(multiplier, 0.01)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
@@ -67,6 +74,28 @@ func _get_closest_target() -> Node2D:
 			closest = target
 
 	return closest
+
+func _on_hurt() -> void:
+	# Clignotement rouge
+	if _blink_tween:
+		_blink_tween.kill()
+	sprite.modulate = Color.WHITE
+	_blink_tween = create_tween()
+	for i in 3:
+		_blink_tween.tween_property(sprite, "modulate", Color(1, 0.3, 0.3, 0.4), 0.06)
+		_blink_tween.tween_property(sprite, "modulate", Color.WHITE, 0.06)
+
+	# Secousse de la caméra
+	if camera == null:
+		return
+	if _shake_tween:
+		_shake_tween.kill()
+	camera.offset = Vector2.ZERO
+	_shake_tween = create_tween()
+	for i in 6:
+		var strength := 6.0 * (1.0 - i / 6.0)
+		_shake_tween.tween_property(camera, "offset", Vector2(randf_range(-strength, strength), randf_range(-strength, strength)), 0.03)
+	_shake_tween.tween_property(camera, "offset", Vector2.ZERO, 0.03)
 
 func _on_interaction_range_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()

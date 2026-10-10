@@ -6,7 +6,9 @@
 [ext_resource type="Resource" uid="uid://cx3u7odug33ov" path="res://resources/harvestables/harvestable_stone.tres" id="3_gn3w3"]
 [ext_resource type="Resource" uid="uid://dqtervracei46" path="res://resources/harvestables/harvestable_bush.tres" id="4_dlssb"]
 [ext_resource type="Resource" uid="uid://bu5deua7sp68p" path="res://resources/harvestables/harvestable_clay.tres" id="5_ak5as"]
+[ext_resource type="Script" uid="uid://cwlx60d7e2j8k" path="res://scripts/data/mob_data.gd" id="7_ak5as"]
 [ext_resource type="Resource" uid="uid://cvo5ye7ex2mm7" path="res://resources/harvestables/harvestable_resin.tres" id="7_h3qyj"]
+[ext_resource type="Resource" uid="uid://dvvvvin1f4l80" path="res://resources/mobs/cow.tres" id="8_1b874"]
 
 [resource]
 script = ExtResource("2_c0px2")
@@ -15,4 +17,5 @@ debug_color = Color(0, 0.90588236, 0.16078432, 1)
 noise_min = -0.2
 noise_max = 0.3
 allowed_harvestables = Array[ExtResource("1_ebg4u")]([ExtResource("2_urude"), ExtResource("3_gn3w3"), ExtResource("4_dlssb"), ExtResource("5_ak5as"), ExtResource("7_h3qyj")])
+allowed_mobs = Array[ExtResource("7_ak5as")]([ExtResource("8_1b874")])
 metadata/_custom_type_script = "uid://b6ijli6w5cnxu"

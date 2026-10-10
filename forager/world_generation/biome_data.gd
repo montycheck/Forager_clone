@@ -14,3 +14,4 @@ class_name BiomeData
 
 
 @export var allowed_harvestables: Array[HarvestableData] = []
+@export var allowed_mobs: Array[MobData] = []

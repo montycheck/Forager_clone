@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MobData" format=3 uid="uid://dvvvvin1f4l80"]
+
+[ext_resource type="Script" uid="uid://bbv3pk6ndoeh3" path="res://scripts/mobs/skittish_behavior.gd" id="1_4fnuk"]
+[ext_resource type="Script" uid="uid://bu7irpjc33okm" path="res://scripts/data/drop_entry.gd" id="1_t2p12"]
+[ext_resource type="Script" uid="uid://cwlx60d7e2j8k" path="res://scripts/data/mob_data.gd" id="2_ucq8q"]
+[ext_resource type="Texture2D" uid="uid://dey0leuonctl2" path="res://assets/sprites/cow.png" id="4_f5lok"]
+
+[resource]
+script = ExtResource("2_ucq8q")
+id = "cow"
+display_name = "Cow"
+sprite_texture = ExtResource("4_f5lok")
+behavior_script = ExtResource("1_4fnuk")
+max_health = 6
+move_speed = 30.0
+knockback_force = 60.0
+respawn_time = 90.0
+metadata/_custom_type_script = "uid://cwlx60d7e2j8k"

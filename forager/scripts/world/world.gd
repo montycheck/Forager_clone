@@ -4,6 +4,7 @@ extends Node2D
 @onready var player: Node2D = $YSortRoot/Player
 @onready var resource_spawner = $YSortRoot/ResourceSpawner
 @onready var structure_spawner = $YSortRoot/StructureSpawner
+@onready var mob_spawner = $YSortRoot/MobSpawner
 
 var loading: LoadingScreen
 
@@ -31,7 +32,10 @@ func _load_existing_world() -> void:
 	loading.set_progress(0.0, "Lecture de la sauvegarde...")
 	world_generator.biome_map.setup(SaveManager.get_save_seed())
 	await world_generator.generate(_range(0.05, 0.35, "Génération du terrain..."))
-	await resource_spawner.generate_resources(_range(0.35, 0.9, "Placement des ressources..."))
+	await resource_spawner.generate_resources(_range(0.35, 0.85, "Placement des ressources..."))
+	loading.set_progress(0.85, "Placement des créatures...")
+	await get_tree().process_frame
+	mob_spawner.generate_mobs()
 	loading.set_progress(0.9, "Chargement de la partie...")
 	await get_tree().process_frame
 	SaveManager.load_game()
@@ -55,7 +59,10 @@ func _generate_new_world() -> void:
 	await world_generator.generate(_range(0.2, 0.4, "Génération du terrain..."))
 	loading.set_progress(0.4, "Placement des structures...")
 	structure_spawner.spawn_requesters()
-	await resource_spawner.generate_resources(_range(0.45, 1.0, "Placement des ressources..."))
+	await resource_spawner.generate_resources(_range(0.45, 0.95, "Placement des ressources..."))
+	loading.set_progress(0.95, "Placement des créatures...")
+	await get_tree().process_frame
+	mob_spawner.generate_mobs()
 	center_player_on_world()
 
 func center_player_on_world() -> void:
