@@ -1,8 +1,8 @@
 extends Control
 
-const RecipeOptionScene := preload("res://scenes/ui/station_recipe_option.tscn")
 const IngredientBadgeScene := preload("res://scenes/ui/ingredient_badge.tscn")
 const RECIPES_FOLDER := "res://resources/recipes/"
+const BATCH_SIZES := [1, 5, 10]
 
 @onready var title_label: Label = $Panel/Root/TopBar/TitleLabel
 @onready var close_button: Button = $Panel/Root/TopBar/CloseButton
@@ -17,74 +17,110 @@ const RECIPES_FOLDER := "res://resources/recipes/"
 var pending_station: Node2D = null
 var current_station: Node2D = null
 
-var viewed_recipe: Recipe = null   # recette affichée / sélectionnée
-var craft_count: int = 1
-var was_busy: bool = false
+# Contrôles créés par script
+var select_recipe_button: Button
+var batch_row: HBoxContainer
+var batch_buttons: Array[Button] = []
+var infinite_button: Button
+var stock_section: VBoxContainer
+var stock_title: Label
+var stock_box: HFlowContainer
+var picker: PanelContainer
+var picker_list: VBoxContainer
 
-var quantity_row: HBoxContainer
-var count_label: Label
-var start_button: Button
+var _shown_recipe: Recipe = null
+var _ingredients_dirty: bool = true
+var _stock_signature: String = ""
 
 func _ready() -> void:
 	close_button.pressed.connect(_on_close_pressed)
 	collect_button.pressed.connect(_on_collect_pressed)
 	UIManager.menu_opened.connect(_on_menu_opened)
 	UIManager.menu_closed.connect(_on_menu_closed)
-	Inventory.inventory_changed.connect(_on_inventory_changed)
 	_build_extra_controls()
+	_build_picker()
 	visible = false
 
-# --- Contrôles créés par script (pas de modif du .tscn) ---
+# --- Construction de l'UI (par script, pas de modif du .tscn) ---
 func _build_extra_controls() -> void:
 	var root := ingredients_list.get_parent()
+
+	# La liste des recettes n'est plus affichée directement
+	recipe_select_box.visible = false
+
+	select_recipe_button = Button.new()
+	select_recipe_button.pressed.connect(_open_picker)
+	root.add_child(select_recipe_button)
+	root.move_child(select_recipe_button, recipe_select_box.get_index())
+
 	var idx := ingredients_list.get_index()
 
-	quantity_row = HBoxContainer.new()
-	root.add_child(quantity_row)
-	root.move_child(quantity_row, idx + 1)
+	# x1 / x5 / x10
+	batch_row = HBoxContainer.new()
+	root.add_child(batch_row)
+	root.move_child(batch_row, idx + 1)
+	for n in BATCH_SIZES:
+		var b := Button.new()
+		b.text = "x%d" % n
+		b.pressed.connect(_on_batch_pressed.bind(n))
+		batch_row.add_child(b)
+		batch_buttons.append(b)
 
-	_add_row_button("-", func(): _set_count(craft_count - 1))
-	count_label = Label.new()
-	count_label.custom_minimum_size = Vector2(70, 0)
-	count_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	quantity_row.add_child(count_label)
-	_add_row_button("+", func(): _set_count(craft_count + 1))
-	_add_row_button("1", func(): _set_count(1))
-	_add_row_button("½", func(): _set_count(int(_get_max() / 2.0)))
-	_add_row_button("Max", func(): _set_count(_get_max()))
+	# Mode infini / Stop
+	infinite_button = Button.new()
+	infinite_button.pressed.connect(_on_infinite_pressed)
+	root.add_child(infinite_button)
+	root.move_child(infinite_button, idx + 2)
 
-	start_button = Button.new()
-	start_button.text = "Lancer"
-	start_button.pressed.connect(_on_start_pressed)
-	root.add_child(start_button)
-	root.move_child(start_button, idx + 2)
+	# Stock d'entrée (items livrés par l'exporteur)
+	stock_section = VBoxContainer.new()
+	stock_section.add_theme_constant_override("separation", 4)
+	root.add_child(stock_section)
+	root.move_child(stock_section, idx + 3)
 
-func _add_row_button(text: String, callback: Callable) -> void:
-	var b := Button.new()
-	b.text = text
-	b.pressed.connect(callback)
-	quantity_row.add_child(b)
+	stock_title = Label.new()
+	stock_section.add_child(stock_title)
 
-# --- Logique ---
-func _get_max() -> int:
-	if current_station == null or viewed_recipe == null:
-		return 0
-	return current_station.get_max_craftable(viewed_recipe)
+	stock_box = HFlowContainer.new()
+	stock_section.add_child(stock_box)
 
-func _set_count(value: int) -> void:
-	if current_station == null or current_station.is_busy():
-		return
-	craft_count = clampi(value, 1, maxi(1, _get_max()))
-	_rebuild_ingredients()
+# Panneau de choix de recette (par-dessus l'UI de la machine)
+func _build_picker() -> void:
+	picker = PanelContainer.new()
+	add_child(picker)
+	picker.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	picker.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	picker.grow_vertical = Control.GROW_DIRECTION_BOTH
+	picker.custom_minimum_size = Vector2(440, 320)
+	picker.visible = false
 
-func _on_inventory_changed() -> void:
-	if visible and current_station != null and not current_station.is_busy():
-		_set_count(craft_count)
+	var box := VBoxContainer.new()
+	picker.add_child(box)
 
-func open_for_station(station: Node2D) -> void:
-	pending_station = station
-	UIManager.open_menu("crafting_station")
+	var top := HBoxContainer.new()
+	box.add_child(top)
+	var title := Label.new()
+	title.text = "Recettes disponibles"
+	top.add_child(title)
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	top.add_child(spacer)
+	var close := Button.new()
+	close.text = "X"
+	close.pressed.connect(_close_picker)
+	top.add_child(close)
 
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.custom_minimum_size = Vector2(0, 240)
+	box.add_child(scroll)
+
+	picker_list = VBoxContainer.new()
+	picker_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	picker_list.add_theme_constant_override("separation", 6)
+	scroll.add_child(picker_list)
+
+# --- Sélecteur de recette ---
 func _load_recipes_for(building_id: String) -> Array[Recipe]:
 	var recipes: Array[Recipe] = []
 
@@ -98,90 +134,188 @@ func _load_recipes_for(building_id: String) -> Array[Recipe]:
 	while file_name != "":
 		if file_name.ends_with(".tres"):
 			var resource = load(RECIPES_FOLDER + file_name)
-			if resource is Recipe and resource.required_building_id == building_id:
+			if resource is Recipe and resource.required_building_id == building_id and resource.output_item != null:
 				recipes.append(resource)
 		file_name = dir.get_next()
 
 	dir.list_dir_end()
+
+	recipes.sort_custom(func(a, b): return a.output_item.display_name < b.output_item.display_name)
 	return recipes
 
-func _on_recipe_selected(recipe: Recipe) -> void:
-	if current_station.is_busy():
+func _open_picker() -> void:
+	if current_station == null or current_station.is_busy() or current_station.infinite_mode:
 		return
-	viewed_recipe = recipe
-	craft_count = 1
-	_set_count(1)
 
-func _rebuild_ingredients() -> void:
-	for child in ingredients_list.get_children():
-		ingredients_list.remove_child(child)
+	for child in picker_list.get_children():
+		picker_list.remove_child(child)
 		child.queue_free()
 
-	if viewed_recipe == null:
-		return
+	var any := false
+	for recipe in _load_recipes_for(current_station.building_id):
+		if not recipe.is_unlocked():
+			continue
+		any = true
+		_add_recipe_row(recipe)
 
-	for i in viewed_recipe.input_items.size():
+	if not any:
+		var label := Label.new()
+		label.text = "Aucune recette disponible."
+		picker_list.add_child(label)
+
+	picker.visible = true
+
+func _close_picker() -> void:
+	picker.visible = false
+
+func _add_recipe_row(recipe: Recipe) -> void:
+	var row := HBoxContainer.new()
+	picker_list.add_child(row)   # dans l'arbre avant de remplir les badges
+
+	var button := Button.new()
+	button.icon = recipe.output_item.icon
+	button.text = recipe.output_item.display_name
+	button.custom_minimum_size = Vector2(170, 0)
+	if recipe.output_item is UpgradeItem:
+		button.tooltip_text = recipe.output_item.get_description()
+	button.pressed.connect(_on_recipe_picked.bind(recipe))
+	row.add_child(button)
+
+	for i in recipe.input_items.size():
+		if recipe.input_items[i] == null:
+			continue
 		var badge := IngredientBadgeScene.instantiate()
-		ingredients_list.add_child(badge)
-		badge.set_data(viewed_recipe.input_items[i], viewed_recipe.input_amounts[i] * craft_count)
+		row.add_child(badge)
+		badge.set_data(recipe.input_items[i], recipe.input_amounts[i])
 
+func _on_recipe_picked(recipe: Recipe) -> void:
+	current_station.select_recipe(recipe)
+	_close_picker()
+	_refresh_state()
+
+# --- Affichage ---
 func _process(_delta: float) -> void:
 	if visible and current_station != null:
 		_refresh_state()
 
+func _rebuild_ingredients(recipe: Recipe) -> void:
+	_shown_recipe = recipe
+	_ingredients_dirty = false
+
+	for child in ingredients_list.get_children():
+		ingredients_list.remove_child(child)
+		child.queue_free()
+
+	if recipe == null:
+		return
+
+	for i in recipe.input_items.size():
+		if recipe.input_items[i] == null:
+			continue
+		var badge := IngredientBadgeScene.instantiate()
+		ingredients_list.add_child(badge)
+		badge.set_data(recipe.input_items[i], recipe.input_amounts[i])
+
+func _refresh_stock_display() -> void:
+	var stock: Dictionary = current_station.input_stock
+
+	# On ne reconstruit que si le contenu a changé
+	var signature := ""
+	for id in stock:
+		signature += "%s:%d;" % [id, stock[id]["amount"]]
+	if signature == _stock_signature:
+		return
+	_stock_signature = signature
+
+	for child in stock_box.get_children():
+		stock_box.remove_child(child)
+		child.queue_free()
+
+	stock_title.text = "Stock de la machine" if not stock.is_empty() else "Stock de la machine : vide"
+
+	for id in stock:
+		var badge := IngredientBadgeScene.instantiate()
+		stock_box.add_child(badge)
+		badge.set_data(stock[id]["item"], stock[id]["amount"])
+
 func _refresh_state() -> void:
-	var busy: bool = current_station.is_busy()
+	var station := current_station
+	var busy: bool = station.is_busy()
+	var infinite: bool = station.infinite_mode
+	var recipe: Recipe = station.active_recipe if busy else station.selected_recipe
 
-	if busy:
-		viewed_recipe = current_station.active_recipe
-	elif was_busy:
-		_set_count(craft_count)   # lot fini : on remet à jour l'affichage
-	was_busy = busy
+	if _ingredients_dirty or recipe != _shown_recipe:
+		_rebuild_ingredients(recipe)
 
-	# Boutons de recettes : verrouillés pendant un lot
-	for child in recipe_select_box.get_children():
-		if child is Button and child.get("recipe") != null:
-			child.disabled = busy or not child.recipe.is_unlocked()
+	# Bouton de sélection de recette
+	if recipe != null:
+		select_recipe_button.text = recipe.output_item.display_name
+		select_recipe_button.icon = recipe.output_item.icon
+	else:
+		select_recipe_button.text = "Sélectionner la recette"
+		select_recipe_button.icon = null
+	select_recipe_button.disabled = busy or infinite
 
-	ingredients_list.visible = not busy and viewed_recipe != null
-	quantity_row.visible = not busy and viewed_recipe != null
-	start_button.visible = not busy
+	ingredients_list.visible = recipe != null
+
+	# Mode manuel : x1 / x5 / x10
+	var max_count: int = station.get_max_craftable(station.selected_recipe)
+	var manual_idle := not busy and not infinite
+	batch_row.visible = manual_idle and recipe != null
+	for i in batch_buttons.size():
+		batch_buttons[i].disabled = max_count < BATCH_SIZES[i]
+
+	# Mode infini / Stop
+	infinite_button.visible = infinite or station.can_use_infinite_mode()
+	infinite_button.text = "Stop" if infinite else "Mode infini"
+	infinite_button.disabled = not infinite and (busy or station.selected_recipe == null or not station.selected_recipe.is_unlocked())
+
+	# Stock d'entrée
+	stock_section.visible = infinite or not station.input_stock.is_empty()
+	_refresh_stock_display()
+
+	# Progression et statut
 	progress_bar.visible = busy
-
-	var max_count := _get_max()
-
 	if busy:
-		var recipe: Recipe = current_station.active_recipe
-		progress_bar.value = clamp(current_station.timer / recipe.production_time, 0.0, 1.0) if recipe.production_time > 0.0 else 1.0
-		status_label.text = "En production... %d restant(s)" % current_station.remaining_crafts
-	elif viewed_recipe == null:
-		status_label.text = "Choisis une recette ci-dessus."
+		progress_bar.value = clamp(station.timer / station.active_recipe.production_time, 0.0, 1.0) if station.active_recipe.production_time > 0.0 else 1.0
+		if infinite:
+			status_label.text = "Mode infini : en production..."
+		else:
+			status_label.text = "En production... %d restant(s)" % station.remaining_crafts
+	elif infinite:
+		status_label.text = "Mode infini : en attente d'ingrédients..."
+	elif recipe == null:
+		status_label.text = "Sélectionne une recette."
 	elif max_count <= 0:
 		status_label.text = "Ingrédients insuffisants."
 	else:
 		status_label.text = "Prêt à lancer."
 
-	if max_count > 0:
-		count_label.text = "%d / %d" % [craft_count, max_count]
-	else:
-		count_label.text = "0"
-
-	# Boutons de quantité inutiles tant qu'aucun craft n'est possible
-	for child in quantity_row.get_children():
-		if child is Button:
-			child.disabled = max_count <= 0
-	start_button.disabled = busy or viewed_recipe == null or max_count <= 0
-
 	# Sortie : toujours collectable
-	var total: int = current_station.get_output_total()
+	var total: int = station.get_output_total()
 	output_amount_label.text = str(total)
-	var first: Item = current_station.get_first_output_item()
+	var first: Item = station.get_first_output_item()
 	output_icon.texture = first.icon if first != null else null
 	collect_button.disabled = total <= 0
 
-func _on_start_pressed() -> void:
-	if current_station.start_batch(viewed_recipe, craft_count):
-		_refresh_state()
+# --- Actions ---
+func open_for_station(station: Node2D) -> void:
+	pending_station = station
+	UIManager.open_menu("crafting_station")
+
+func _on_batch_pressed(count: int) -> void:
+	var recipe: Recipe = current_station.selected_recipe
+	if recipe == null:
+		return
+	current_station.start_batch(recipe, count)
+	_refresh_state()
+
+func _on_infinite_pressed() -> void:
+	if current_station.infinite_mode:
+		current_station.stop_infinite()
+	else:
+		current_station.start_infinite()
+	_refresh_state()
 
 func _on_collect_pressed() -> void:
 	current_station.collect_output()
@@ -190,26 +324,15 @@ func _on_menu_opened(menu_name: String) -> void:
 	if menu_name == "crafting_station":
 		current_station = pending_station
 		title_label.text = current_station.station_display_name
-
-		for child in recipe_select_box.get_children():
-			recipe_select_box.remove_child(child)
-			child.queue_free()
-
-		for recipe in _load_recipes_for(current_station.building_id):
-			var option := RecipeOptionScene.instantiate()
-			recipe_select_box.add_child(option)
-			option.set_data(recipe)
-			option.recipe_selected.connect(_on_recipe_selected)
-
-		viewed_recipe = current_station.active_recipe if current_station.is_busy() else null
-		was_busy = current_station.is_busy()
-		craft_count = 1
-		_rebuild_ingredients()
+		_ingredients_dirty = true
+		_stock_signature = ""
+		picker.visible = false
 		_refresh_state()
 		UITransitions.show_panel(self)
 
 func _on_menu_closed(menu_name: String) -> void:
 	if menu_name == "crafting_station":
+		picker.visible = false
 		current_station = null
 		UITransitions.hide_panel(self)
 

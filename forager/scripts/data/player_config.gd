@@ -8,6 +8,7 @@ class_name PlayerConfig
 @export var base_hit_power: float = 1.0
 @export var harvest_delay: float = 0.55
 @export var base_luck: float = 1.0
+@export var interact_range: float = 144.0
 
 @export_group("Vitals")
 @export var max_health: float = 100.0

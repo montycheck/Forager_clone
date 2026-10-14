@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://yp4ggqx31oux"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_kamsv"]
+[ext_resource type="Resource" uid="uid://bm32wkomyreh5" path="res://resources/items/item_wood.tres" id="2_fbxsr"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="2_n5jff"]
+[ext_resource type="Texture2D" uid="uid://bwg4x0wk2alo" path="res://assets/sprites/storage_core_placeholder.png" id="3_p0wlv"]
+[ext_resource type="PackedScene" uid="uid://bkauiaraaocqu" path="res://scenes/buildings/storage_core_building.tscn" id="4_a44ai"]
+
+[resource]
+script = ExtResource("2_n5jff")
+id = "storage_core"
+display_name = "Storage Core"
+icon = ExtResource("3_p0wlv")
+scene = ExtResource("4_a44ai")
+category = 2
+cost_items = Array[ExtResource("1_kamsv")]([ExtResource("2_fbxsr")])
+cost_amounts = Array[int]([1])
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

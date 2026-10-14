@@ -35,6 +35,9 @@ func start_placing(building: Building) -> void:
 
 	if not (skill_ok and stage_ok):
 		return
+	
+	if building.id == "storage_core" and StorageNetwork.is_active():
+		return
 
 	if is_placing and current_building == building:
 		cancel_placing()
@@ -162,3 +165,7 @@ func _cleanup_placing() -> void:
 func _on_menu_closed(menu_name: String) -> void:
 	if menu_name == "build":
 		_cleanup_placing()
+
+func get_node_footprint(node: Node2D) -> Rect2:
+	var gs: Vector2i = _grid_sizes.get(node.scene_file_path, Vector2i(1, 1))
+	return _get_footprint(node.global_position, gs)

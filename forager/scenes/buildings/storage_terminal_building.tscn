@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://2uesiatmvty2"]
+
+[ext_resource type="Script" uid="uid://cxv110ksel2hu" path="res://scripts/world/storage_terminal.gd" id="1_h2877"]
+[ext_resource type="Texture2D" uid="uid://bbpqdqfhb3yjl" path="res://assets/sprites/storage_terminal_placeholder.png" id="2_pp6nq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrj60"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2877"]
+size = Vector2(48, 48)
+
+[node name="StorageTerminalBuilding" type="Node2D" unique_id=1923503044]
+script = ExtResource("1_h2877")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=923798352]
+texture = ExtResource("2_pp6nq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122034602]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=673126482]
+shape = SubResource("RectangleShape2D_vrj60")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=468519811]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=492979272]
+shape = SubResource("RectangleShape2D_h2877")

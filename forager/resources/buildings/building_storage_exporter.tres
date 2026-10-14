@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://1gau8mllslrd"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_q004x"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_vxy61"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="2_wf8ha"]
+[ext_resource type="Texture2D" uid="uid://cli720jwxbk61" path="res://assets/sprites/exporter_placeholder.png" id="3_aqkgq"]
+[ext_resource type="PackedScene" uid="uid://dnq5gp1wgevv6" path="res://scenes/buildings/storage_exporter_building.tscn" id="4_y7f7j"]
+
+[resource]
+script = ExtResource("2_wf8ha")
+id = "storage_exporter"
+display_name = "Storage Exporter"
+icon = ExtResource("3_aqkgq")
+scene = ExtResource("4_y7f7j")
+category = 2
+cost_items = Array[ExtResource("1_q004x")]([ExtResource("2_vxy61")])
+cost_amounts = Array[int]([2])
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

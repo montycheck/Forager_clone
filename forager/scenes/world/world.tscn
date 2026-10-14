@@ -18,7 +18,9 @@
 [ext_resource type="Script" uid="uid://ej0qkjoe4ljb" path="res://world_generation/biome_map.gd" id="14_wbwoo"]
 [ext_resource type="Script" uid="uid://b6ijli6w5cnxu" path="res://world_generation/biome_data.gd" id="15_tytul"]
 [ext_resource type="Resource" uid="uid://dpcc1mh8kqbn6" path="res://world_generation/biomes/biome_plain.tres" id="16_t634p"]
+[ext_resource type="Script" uid="uid://w8ekvdmmwcis" path="res://scripts/ui/storage_terminal_ui.gd" id="16_ues17"]
 [ext_resource type="Resource" uid="uid://bgn6s6s4kyfpb" path="res://world_generation/biomes/biome_forest.tres" id="17_6hctx"]
+[ext_resource type="Script" uid="uid://r58ohr4q64by" path="res://scripts/ui/importer_config_ui.gd" id="17_xq18t"]
 [ext_resource type="Resource" uid="uid://6jmlo33vwkj7" path="res://world_generation/biomes/biome_desert.tres" id="18_ues17"]
 [ext_resource type="Resource" uid="uid://bxhlbg2xdgqq0" path="res://world_generation/biomes/biome_water.tres" id="19_xq18t"]
 [ext_resource type="Script" uid="uid://be4rx4gcny64m" path="res://world_generation/world_generator.gd" id="20_tytul"]
@@ -105,6 +107,24 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("14_t634p")
+
+[node name="StorageTerminalUI" type="Control" parent="UILayer" unique_id=1501174731]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_ues17")
+
+[node name="ImporterConfigUI" type="Control" parent="UILayer" unique_id=1578912547]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_xq18t")
 
 [node name="BiomeMap" type="Node" parent="." unique_id=1233440378]
 script = ExtResource("14_wbwoo")

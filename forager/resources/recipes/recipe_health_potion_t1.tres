@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("2_ccpi7")
 output_item = ExtResource("4_71dk7")
-input_items = Array[ExtResource("1_h7lrr")]([ExtResource("2_nhxwf"), ExtResource("3_rrdug"), null])
+input_items = Array[ExtResource("1_h7lrr")]([ExtResource("2_nhxwf"), ExtResource("3_rrdug")])
 input_amounts = Array[int]([1, 2])
 required_building_id = "alchemy_table"
 metadata/_custom_type_script = "uid://c7uv5ll7k0lci"

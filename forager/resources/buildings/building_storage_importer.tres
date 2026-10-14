@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://dkwbblmfj8kv7"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_mv11x"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_7w5kd"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="2_umqy0"]
+[ext_resource type="Texture2D" uid="uid://4wr2xn6l4o65" path="res://assets/sprites/importer_placeholder.png" id="3_5i303"]
+[ext_resource type="PackedScene" uid="uid://d3w1fxv7tppya" path="res://scenes/buildings/storage_importer_building.tscn" id="4_etxkn"]
+
+[resource]
+script = ExtResource("2_umqy0")
+id = "storage_importer"
+display_name = "Storage Importer"
+icon = ExtResource("3_5i303")
+scene = ExtResource("4_etxkn")
+category = 2
+cost_items = Array[ExtResource("1_mv11x")]([ExtResource("2_7w5kd")])
+cost_amounts = Array[int]([2])
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

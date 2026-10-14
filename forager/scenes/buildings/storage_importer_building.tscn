@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d3w1fxv7tppya"]
+
+[ext_resource type="Script" uid="uid://cm43la2otyujw" path="res://scripts/world/storage_importer.gd" id="1_voy7d"]
+[ext_resource type="Texture2D" uid="uid://4wr2xn6l4o65" path="res://assets/sprites/importer_placeholder.png" id="2_2631a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b8k1"]
+size = Vector2(24, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voy7d"]
+size = Vector2(32, 32)
+
+[node name="StorageImporterBuilding" type="Node2D" unique_id=314202280]
+script = ExtResource("1_voy7d")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1741641140]
+texture = ExtResource("2_2631a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=926995546]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1632470550]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_2b8k1")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1818760994]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1049659693]
+shape = SubResource("RectangleShape2D_voy7d")

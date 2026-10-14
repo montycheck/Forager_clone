@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bkauiaraaocqu"]
+
+[ext_resource type="Script" uid="uid://ci6ab2th6soqj" path="res://scripts/world/storage_core.gd" id="1_55hok"]
+[ext_resource type="Texture2D" uid="uid://bwg4x0wk2alo" path="res://assets/sprites/storage_core_placeholder.png" id="2_c16pw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvt60"]
+size = Vector2(32, 32)
+
+[node name="StorageCoreBuilding" type="Node2D" unique_id=645090978]
+script = ExtResource("1_55hok")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=782419205]
+texture = ExtResource("2_c16pw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1558566487]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=147856364]
+shape = SubResource("RectangleShape2D_bvt60")

@@ -12,6 +12,7 @@ id = "mine"
 display_name = "Mine"
 icon = ExtResource("3_vbc3k")
 scene = ExtResource("4_klaqr")
+category = 1
 cost_items = Array[ExtResource("1_j7k7h")]([ExtResource("2_81wtn")])
 cost_amounts = Array[int]([8])
 required_skill_id = "building_mine"

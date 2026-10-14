@@ -15,17 +15,21 @@ func save_game():
 	data["upgrades"] = PlayerStats.save_data()
 	data["vitals"] = PlayerVitals.save_data()
 	data["world_seed"] = current_seed
+	data["storage"] = StorageNetwork.save_data()
 
 	var player := get_tree().get_first_node_in_group("player")
 	data["player"] = player.save_data()
 
 	var objects: Array = []
 	for node in get_tree().get_nodes_in_group("persist"):
-		objects.append({
+		var entry := {
 			"scene_path": node.scene_file_path,
 			"pos_x": node.global_position.x,
 			"pos_y": node.global_position.y
-		})
+		}
+		if node.has_method("save_state"):
+			entry["state"] = node.save_state()
+		objects.append(entry)
 	data["objects"] = objects
 
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -65,6 +69,9 @@ func load_game():
 		PlayerStats.load_data(data["upgrades"])
 	if data.has("vitals"):
 		PlayerVitals.load_data(data["vitals"])
+	if data.has("storage"):
+		StorageNetwork.load_data(data["storage"])
+	
 	var player := get_tree().get_first_node_in_group("player")
 	player.load_data(data["player"])
 
@@ -76,6 +83,8 @@ func load_game():
 		var instance := scene.instantiate()
 		get_tree().get_first_node_in_group("y_sort_root").add_child(instance)
 		instance.global_position = Vector2(entry["pos_x"], entry["pos_y"])
+		if entry.has("state") and instance.has_method("load_state"):
+			instance.load_state(entry["state"])
 
 	print("Game loaded")
 
@@ -91,4 +100,5 @@ func request_new_game():
 	current_seed = randi()
 	PlayerStats.upgrades.clear()
 	PlayerVitals.reset()
+	StorageNetwork.reset()
 	get_tree().change_scene_to_file("res://scenes/world/world.tscn")

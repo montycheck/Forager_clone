@@ -12,6 +12,7 @@ id = "farm"
 display_name = "Farm"
 icon = ExtResource("1_cuy81")
 scene = ExtResource("2_yq0k1")
+category = 1
 cost_items = Array[ExtResource("1_151v0")]([ExtResource("2_1bpvj")])
 cost_amounts = Array[int]([3])
 required_stage_id = "plain_1"

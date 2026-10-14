@@ -19,6 +19,7 @@ func _ready() -> void:
 	select_button.pressed.connect(_on_select_pressed)
 	PlayerProgress.skill_points_changed.connect(_update_state)
 	Inventory.inventory_changed.connect(_update_state)
+	StorageNetwork.network_changed.connect(_update_state)
 
 	if building != null:
 		icon.texture = building.icon
@@ -50,6 +51,13 @@ func _update_state() -> void:
 
 	if not (skill_ok and stage_ok):
 		select_button.text = "Verrouillé"
+		select_button.disabled = true
+		select_button.remove_theme_stylebox_override("normal")
+		select_button.remove_theme_stylebox_override("disabled")
+		return
+	
+	if building.id == "storage_core" and StorageNetwork.is_active():
+		select_button.text = "Déjà construit"
 		select_button.disabled = true
 		select_button.remove_theme_stylebox_override("normal")
 		select_button.remove_theme_stylebox_override("disabled")

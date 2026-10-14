@@ -80,3 +80,23 @@ func _complete_stage() -> void:
 func interact() -> void:
 	var ui = get_tree().get_first_node_in_group("requester_ui")
 	ui.open_for_requester(self)
+
+func accept_input(item: Item, amount: int) -> int:
+	if is_ghost or current_stage == null or current_stage.key_item == null:
+		return 0
+	if item.id != current_stage.key_item.id:
+		return 0
+	var missing := current_stage.key_item_amount - deposited_amount
+	var to_add := mini(amount, missing)
+	if to_add <= 0:
+		return 0
+	deposited_amount += to_add
+	if deposited_amount >= current_stage.key_item_amount:
+		_complete_stage()
+	return to_add
+
+func save_state() -> Dictionary:
+	return {"deposited": deposited_amount}
+
+func load_state(data: Dictionary) -> void:
+	deposited_amount = int(data.get("deposited", 0))

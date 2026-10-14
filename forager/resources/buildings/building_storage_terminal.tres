@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://d0ucl1ev3aj34"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_v1xkc"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="2_0ald1"]
+[ext_resource type="Resource" uid="uid://bm32wkomyreh5" path="res://resources/items/item_wood.tres" id="2_0gyxg"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="3_5j8rw"]
+[ext_resource type="Texture2D" uid="uid://bbpqdqfhb3yjl" path="res://assets/sprites/storage_terminal_placeholder.png" id="4_npdf3"]
+[ext_resource type="PackedScene" uid="uid://2uesiatmvty2" path="res://scenes/buildings/storage_terminal_building.tscn" id="5_yhnfr"]
+
+[resource]
+script = ExtResource("2_0ald1")
+id = "storage_terminal"
+display_name = "Storage Terminal"
+icon = ExtResource("4_npdf3")
+scene = ExtResource("5_yhnfr")
+category = 2
+cost_items = Array[ExtResource("1_v1xkc")]([ExtResource("2_0gyxg"), ExtResource("3_5j8rw")])
+cost_amounts = Array[int]([1, 1])
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

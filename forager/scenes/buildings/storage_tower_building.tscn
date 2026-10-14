@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dk2w6oiu8ag0n"]
+
+[ext_resource type="Script" uid="uid://cbll2etrsushd" path="res://scripts/world/storage_tower.gd" id="1_hq4tn"]
+[ext_resource type="Texture2D" uid="uid://c72mg2gf2qej0" path="res://assets/sprites/storage_tower_placeholder.png" id="2_0j0gb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqq74"]
+size = Vector2(32, 32)
+
+[node name="StorageTowerBuilding" type="Node2D" unique_id=1523309257]
+script = ExtResource("1_hq4tn")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2045544457]
+texture = ExtResource("2_0j0gb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2131490850]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=691728014]
+shape = SubResource("RectangleShape2D_uqq74")
