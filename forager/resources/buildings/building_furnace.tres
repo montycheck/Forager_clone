@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://dpvtvsi64vbsx"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_0uscu"]
+[ext_resource type="Texture2D" uid="uid://b6ml7k7sw38pl" path="res://assets/sprites/furnace_placeholder.png" id="2_3ggdd"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_rc7ri"]
+[ext_resource type="PackedScene" uid="uid://cejxs1phl3i5a" path="res://scenes/buildings/furnace_building.tscn" id="3_rc7ri"]
+[ext_resource type="Resource" uid="uid://f6y00mvmiiya" path="res://resources/items/item_clay.tres" id="3_wws74"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="4_wws74"]
+
+[resource]
+script = ExtResource("4_wws74")
+id = "furnace"
+display_name = "Furnace"
+icon = ExtResource("2_3ggdd")
+scene = ExtResource("3_rc7ri")
+grid_size = Vector2i(2, 2)
+cost_items = Array[ExtResource("1_0uscu")]([ExtResource("2_rc7ri"), ExtResource("3_wws74")])
+cost_amounts = Array[int]([40, 20])
+required_stage_id = "plain_1"
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

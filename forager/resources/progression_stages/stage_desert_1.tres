@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ProgressionStage" format=3 uid="uid://dnj2txlem605o"]
+
+[ext_resource type="Script" uid="uid://bsuj7yuojk0uk" path="res://scripts/data/progression_stage.gd" id="1_qg372"]
+[ext_resource type="Resource" uid="uid://bxadnc75cd1mc" path="res://resources/items/item_reinforced_plate.tres" id="1_yg4lh"]
+
+[resource]
+script = ExtResource("1_qg372")
+id = "desert_1"
+biome_name = "Desert"
+key_item = ExtResource("1_yg4lh")
+key_item_amount = 60
+metadata/_custom_type_script = "uid://bsuj7yuojk0uk"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://dtiu42m1upsr6"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_qra5d"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_eutox"]
+[ext_resource type="Resource" uid="uid://tfev2qnoe84g" path="res://resources/items/item_iron_ingot.tres" id="3_qra5d"]
+[ext_resource type="Texture2D" uid="uid://x3dkgwtm4fwe" path="res://assets/sprites/mine_placeholder.png" id="4_y5tko"]
+[ext_resource type="PackedScene" uid="uid://cpkx5q8b2nwc4" path="res://scenes/buildings/coal_mine_building.tscn" id="5_eutox"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="6_o2tms"]
+
+[resource]
+script = ExtResource("6_o2tms")
+id = "coal_mine"
+display_name = "Coal Mine"
+icon = ExtResource("4_y5tko")
+scene = ExtResource("5_eutox")
+category = 1
+cost_items = Array[ExtResource("1_qra5d")]([ExtResource("2_eutox"), ExtResource("3_qra5d")])
+cost_amounts = Array[int]([30, 5])
+required_stage_id = "desert_1"
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

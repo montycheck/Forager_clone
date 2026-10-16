@@ -119,9 +119,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_print_inventory"):
 		Inventory.print_inventory()
 
-	if event.is_action_pressed("toggle_skills"):
-		get_tree().get_first_node_in_group("skill_tree_ui").toggle()
-
 	if event.is_action_pressed("toggle_build_menu"):
 		get_tree().get_first_node_in_group("build_menu_ui").toggle()
 

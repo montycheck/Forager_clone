@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="1_eh07w"]
 [ext_resource type="Resource" uid="uid://bm32wkomyreh5" path="res://resources/items/item_wood.tres" id="2_1bpvj"]
 [ext_resource type="PackedScene" uid="uid://8k44a8uxyixr" path="res://scenes/buildings/farm_building.tscn" id="2_yq0k1"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="3_1bpvj"]
 
 [resource]
 script = ExtResource("1_eh07w")
@@ -13,7 +14,7 @@ display_name = "Farm"
 icon = ExtResource("1_cuy81")
 scene = ExtResource("2_yq0k1")
 category = 1
-cost_items = Array[ExtResource("1_151v0")]([ExtResource("2_1bpvj")])
-cost_amounts = Array[int]([3])
+cost_items = Array[ExtResource("1_151v0")]([ExtResource("2_1bpvj"), ExtResource("3_1bpvj")])
+cost_amounts = Array[int]([30, 10])
 required_stage_id = "plain_1"
 metadata/_custom_type_script = "uid://utijj7eg8p5c"

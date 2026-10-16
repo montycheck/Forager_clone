@@ -10,7 +10,6 @@ size = Vector2(32, 32)
 [node name="MineBuilding" type="Node2D" unique_id=1596198074]
 script = ExtResource("1_l183c")
 produced_item = ExtResource("2_42yr5")
-production_time = 7.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=913305284]
 texture = ExtResource("1_8ceff")

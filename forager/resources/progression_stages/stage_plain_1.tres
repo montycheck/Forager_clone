@@ -8,4 +8,5 @@ script = ExtResource("1_b1p67")
 id = "plain_1"
 biome_name = "Plain"
 key_item = ExtResource("1_1u15c")
+key_item_amount = 60
 metadata/_custom_type_script = "uid://bsuj7yuojk0uk"

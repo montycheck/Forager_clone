@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://bnkuk3epkmotj"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_ipvlw"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_v4iqb"]
+[ext_resource type="Resource" uid="uid://tfev2qnoe84g" path="res://resources/items/item_iron_ingot.tres" id="3_v0dxj"]
+[ext_resource type="Texture2D" uid="uid://x3dkgwtm4fwe" path="res://assets/sprites/mine_placeholder.png" id="4_4i8am"]
+[ext_resource type="Resource" uid="uid://8s4jdwectvoo" path="res://resources/items/item_rope.tres" id="4_v4iqb"]
+[ext_resource type="PackedScene" uid="uid://c3t8c8jdf27aa" path="res://scenes/buildings/copper_mine_building.tscn" id="6_v0dxj"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="6_yeur1"]
+
+[resource]
+script = ExtResource("6_yeur1")
+id = "copper_mine"
+display_name = "Copper Mine"
+icon = ExtResource("4_4i8am")
+scene = ExtResource("6_v0dxj")
+category = 1
+cost_items = Array[ExtResource("1_ipvlw")]([ExtResource("2_v4iqb"), ExtResource("3_v0dxj"), ExtResource("4_v4iqb")])
+cost_amounts = Array[int]([40, 10, 0])
+required_stage_id = "desert_1"
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

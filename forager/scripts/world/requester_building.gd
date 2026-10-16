@@ -96,7 +96,9 @@ func accept_input(item: Item, amount: int) -> int:
 	return to_add
 
 func save_state() -> Dictionary:
-	return {"deposited": deposited_amount}
+	return {"deposited": deposited_amount, "biome_name": biome_name}
 
 func load_state(data: Dictionary) -> void:
+	biome_name = data.get("biome_name", biome_name)
+	_load_current_stage()
 	deposited_amount = int(data.get("deposited", 0))

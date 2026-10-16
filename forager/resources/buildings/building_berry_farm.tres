@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://4bi082ewgctv"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_evhk2"]
+[ext_resource type="Resource" uid="uid://np8u1tor371g" path="res://resources/items/item_leaves.tres" id="3_pttoo"]
+[ext_resource type="Resource" uid="uid://bm32wkomyreh5" path="res://resources/items/item_wood.tres" id="3_qcipm"]
+[ext_resource type="Resource" uid="uid://8s4jdwectvoo" path="res://resources/items/item_rope.tres" id="4_g75xo"]
+[ext_resource type="Texture2D" uid="uid://x3dkgwtm4fwe" path="res://assets/sprites/mine_placeholder.png" id="4_wxfcw"]
+[ext_resource type="PackedScene" uid="uid://3yxabmodh54i" path="res://scenes/buildings/berry_farm_building.tscn" id="6_epqh2"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="6_tur8x"]
+
+[resource]
+script = ExtResource("6_tur8x")
+id = "berry_farm"
+display_name = "Berry Farm"
+icon = ExtResource("4_wxfcw")
+scene = ExtResource("6_epqh2")
+category = 1
+cost_items = Array[ExtResource("1_evhk2")]([ExtResource("3_qcipm"), ExtResource("3_pttoo"), ExtResource("4_g75xo")])
+cost_amounts = Array[int]([40, 30, 10])
+required_stage_id = "plain_2"
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

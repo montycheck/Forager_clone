@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://cgfxohkgsgexg"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_p1sua"]
+[ext_resource type="Resource" uid="uid://tfev2qnoe84g" path="res://resources/items/item_iron_ingot.tres" id="2_65otp"]
+[ext_resource type="Resource" uid="uid://8s4jdwectvoo" path="res://resources/items/item_rope.tres" id="2_ivdkf"]
+[ext_resource type="Resource" uid="uid://np8u1tor371g" path="res://resources/items/item_leaves.tres" id="3_65otp"]
+[ext_resource type="Resource" uid="uid://dl0ffl5lvngbo" path="res://resources/items/item_boots_t2.tres" id="5_bpx1i"]
+[ext_resource type="Script" uid="uid://c7uv5ll7k0lci" path="res://scripts/data/recipe.gd" id="5_di54j"]
+
+[resource]
+script = ExtResource("5_di54j")
+output_item = ExtResource("5_bpx1i")
+input_items = Array[ExtResource("1_p1sua")]([ExtResource("2_65otp"), ExtResource("2_ivdkf"), ExtResource("3_65otp")])
+input_amounts = Array[int]([10, 5, 10])
+required_stage_id = "desert_1"
+required_building_id = "workbench"
+production_time = 5.0
+metadata/_custom_type_script = "uid://c7uv5ll7k0lci"

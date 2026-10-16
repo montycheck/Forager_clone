@@ -17,5 +17,6 @@ display_name = "Alchemy Table"
 icon = ExtResource("7_7kh8l")
 scene = ExtResource("8_4nabu")
 cost_items = Array[ExtResource("1_1jehy")]([ExtResource("2_ob773"), ExtResource("3_4nabu"), ExtResource("4_sbhkg"), ExtResource("5_04dln"), ExtResource("6_slgg1")])
-cost_amounts = Array[int]([3, 1, 1, 1, 1])
+cost_amounts = Array[int]([30, 15, 1, 1, 1])
+required_stage_id = "plain_2"
 metadata/_custom_type_script = "uid://utijj7eg8p5c"

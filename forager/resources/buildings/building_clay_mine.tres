@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://wc3lurcjh8mx"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_crjym"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_v5ihn"]
+[ext_resource type="Resource" uid="uid://8s4jdwectvoo" path="res://resources/items/item_rope.tres" id="4_x6dvr"]
+[ext_resource type="PackedScene" uid="uid://drolhdoq181u3" path="res://scenes/buildings/clay_mine_building.tscn" id="5_crjym"]
+[ext_resource type="Texture2D" uid="uid://x3dkgwtm4fwe" path="res://assets/sprites/mine_placeholder.png" id="5_jer8l"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="7_kk1p5"]
+
+[resource]
+script = ExtResource("7_kk1p5")
+id = "clay_mine"
+display_name = "Clay Mine"
+icon = ExtResource("5_jer8l")
+scene = ExtResource("5_crjym")
+category = 1
+cost_items = Array[ExtResource("1_crjym")]([ExtResource("2_v5ihn"), ExtResource("4_x6dvr")])
+cost_amounts = Array[int]([40, 20])
+required_stage_id = "plain_2"
+metadata/_custom_type_script = "uid://utijj7eg8p5c"

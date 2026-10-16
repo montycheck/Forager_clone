@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Building" format=3 uid="uid://bdfdo1vo2cqdi"]
+
+[ext_resource type="Script" uid="uid://i8ghxbihqbhs" path="res://scripts/data/item.gd" id="1_b2fk2"]
+[ext_resource type="Resource" uid="uid://dojlx4hhj0afq" path="res://resources/items/item_stone.tres" id="2_yqqpb"]
+[ext_resource type="Resource" uid="uid://tfev2qnoe84g" path="res://resources/items/item_iron_ingot.tres" id="3_sad4n"]
+[ext_resource type="Texture2D" uid="uid://x3dkgwtm4fwe" path="res://assets/sprites/mine_placeholder.png" id="4_ccw7b"]
+[ext_resource type="PackedScene" uid="uid://dvj3ej55h2jxq" path="res://scenes/buildings/iron_mine_building.tscn" id="5_b2fk2"]
+[ext_resource type="Script" uid="uid://utijj7eg8p5c" path="res://scripts/data/building.gd" id="6_ici46"]
+
+[resource]
+script = ExtResource("6_ici46")
+id = "iron_mine"
+display_name = "Iron Mine"
+icon = ExtResource("4_ccw7b")
+scene = ExtResource("5_b2fk2")
+category = 1
+cost_items = Array[ExtResource("1_b2fk2")]([ExtResource("2_yqqpb"), ExtResource("3_sad4n")])
+cost_amounts = Array[int]([30, 10])
+required_stage_id = "desert_1"
+metadata/_custom_type_script = "uid://utijj7eg8p5c"
